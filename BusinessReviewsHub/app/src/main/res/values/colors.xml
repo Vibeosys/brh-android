@@ -10,4 +10,8 @@
 
     <color name="colorGradientStart">#ffeeaa</color>
     <color name="colorGradientCenter">#ffdd53</color>
+
+    <color name="primaryText">#eb2f3031</color>
+    <color name="accentText">#FF4081</color>
+    <color name="secondaryText">#d863666b</color>
 </resources>
