@@ -51,7 +51,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipkart"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -64,7 +64,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -127,7 +127,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amazon"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -140,7 +140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -203,7 +203,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapdeal"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -216,7 +216,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -279,7 +279,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mantra"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -292,7 +292,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -308,7 +308,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -355,7 +355,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="FirstCry"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -368,7 +368,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -384,7 +384,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -431,7 +431,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jabong"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -444,7 +444,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -460,7 +460,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -507,7 +507,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipkart"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -520,7 +520,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -536,7 +536,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -583,7 +583,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapdeal"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -596,7 +596,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -612,7 +612,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -659,7 +659,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapdeal"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -688,7 +688,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -735,7 +735,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipcart"
-                            android:textSize="21sp" />
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -748,7 +748,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -764,7 +764,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
             </LinearLayout>
