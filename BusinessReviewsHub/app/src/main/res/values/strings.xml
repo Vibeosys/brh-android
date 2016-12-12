@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Business Reviews Hub</string>
+    <!-- Bottom Bar -->
+    <string name="str_send_sms">Send Sms</string>
+    <string name="str_history">History</string>
+    <string name="str_profile">Profile</string>
 </resources>
