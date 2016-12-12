@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorEdtLogin">#2fa881</color>
+    <color name="colorTxtLogin">#FFCC00</color>
+    <color name="colorTxtHint">#c5c5c5</color>
+
+    <color name="colorGradientStart">#ffeeaa</color>
+    <color name="colorGradientCenter">#ffdd53</color>
 </resources>
