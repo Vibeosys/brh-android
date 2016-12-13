@@ -27,10 +27,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -51,6 +52,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipkart"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -64,6 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -72,7 +75,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -80,6 +82,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="12/02/2017"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -103,10 +106,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -127,6 +131,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Amazon"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -140,6 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -148,7 +154,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -179,10 +184,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -203,6 +209,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapdeal"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -216,6 +223,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -224,7 +232,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -255,10 +262,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -279,6 +287,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mantra"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -292,6 +301,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -300,7 +310,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -331,10 +340,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -355,6 +365,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="FirstCry"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -368,6 +379,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -376,7 +388,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -407,10 +418,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -431,6 +443,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jabong"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -444,6 +457,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -452,7 +466,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -483,10 +496,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -507,6 +521,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipkart"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -520,6 +535,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -528,7 +544,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -559,10 +574,88 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.businessreviewshub.views.RobotoTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Snapdeal"
+                            android:textColor="@color/primaryText"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.businessreviewshub.views.RobotoTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="12/02/2017"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#e2e0e0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -583,6 +676,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Snapdeal"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -596,6 +690,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -604,7 +699,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
@@ -635,86 +729,11 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2.5"
-                    android:orientation="vertical"
-                    android:weightSum="2">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <com.businessreviewshub.views.RobotoTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Snapdeal"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <com.businessreviewshub.views.RobotoTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
-                            android:textSize="18sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-
-                    android:orientation="vertical">
-
-                    <com.businessreviewshub.views.RobotoTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="12/02/2017"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#e2e0e0" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:orientation="horizontal"
-                android:weightSum="5">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@mipmap/ic_launcher" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/sample_logo" />
 
                 </LinearLayout>
 
@@ -735,6 +754,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Flipcart"
+                            android:textColor="@color/primaryText"
                             android:textSize="18sp" />
                     </LinearLayout>
 
@@ -748,6 +768,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="Lorem ipsum dolor...."
+                            android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -756,7 +777,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
-
                     android:orientation="vertical">
 
                     <com.businessreviewshub.views.RobotoTextView
