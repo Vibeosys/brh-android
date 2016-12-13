@@ -23,5 +23,7 @@
     <string name="str_btn_clear">Clear</string>
     <string name="str_hint_cust_name">Customer Name</string>
     <string name="str_hint_ph_no">Phone Number</string>
+    <string name="str_login_copyright">copyright &#169; Business Reviews Hub</string>
+    <string name="str_login_website">Looking for something ? \nVisit our website www.vibeosys.com</string>
 
 </resources>

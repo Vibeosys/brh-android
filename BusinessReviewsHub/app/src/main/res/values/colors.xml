@@ -14,4 +14,5 @@
     <color name="primaryText">#eb2f3031</color>
     <color name="accentText">#FF4081</color>
     <color name="secondaryText">#d863666b</color>
+    <color name="transLoginText">#c9414143</color>
 </resources>
