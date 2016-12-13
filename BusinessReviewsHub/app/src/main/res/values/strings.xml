@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Business Reviews Hub</string>
     <!-- Bottom Bar -->
-    <string name="str_send_sms">Send Sms</string>
+    <string name="str_send_sms">Send SMS</string>
     <string name="str_history">History</string>
     <string name="str_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -15,7 +15,7 @@
     <string name="str_hint_password">Enter Password</string>
     <!-- Login Activity-->
     <string name="str_login_activity">Login</string>
-    <string name="str_btn_login">Login</string>
+    <string name="str_btn_login">LOGIN</string>
     <string name="str_hint_username">User Name</string>
     <string name="str_btn_sign_in">Sign In</string>
     <string name="str_hint_select_company">Select Company</string>
@@ -23,7 +23,7 @@
     <string name="str_btn_clear">Clear</string>
     <string name="str_hint_cust_name">Customer Name</string>
     <string name="str_hint_ph_no">Phone Number</string>
-    <string name="str_login_copyright">copyright &#169; Business Reviews Hub</string>
+    <string name="str_login_copyright">Copyright &#169; Business Reviews Hub</string>
     <string name="str_login_website">Looking for something ? \nVisit our website www.vibeosys.com</string>
 
 </resources>

@@ -7,15 +7,18 @@
     <color name="colorEdtLogin">#2fa881</color>
     <color name="colorTxtLogin">#FFCC00</color>
     <color name="colorTxtHint">#c5c5c5</color>
+    <color name="colorCancelButton">#a1a1a1</color>
 
     <color name="colorGradientStart">#ffeeaa</color>
     <color name="colorGradientCenter">#ffdd53</color>
 
     <color name="primaryText">#eb2f3031</color>
+    <color name="primaryText2">#bf2f3031</color>
     <color name="accentText">#FF4081</color>
     <color name="secondaryText">#d863666b</color>
-    <color name="transLoginText">#c9414143</color>
+    <color name="transLoginText">#ad414143</color>
 
     <color name="over_layer">#c82e2b28</color>
     <color name="transperentWhite">#c8ffffff</color>
+    <color name="transWhiteLogin">#9cffffff</color>
 </resources>
