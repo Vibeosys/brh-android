@@ -25,8 +25,6 @@ public class HistoryDetailsFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle("History");
-        Log.d("TAG","TAG");
-        Log.d("TAG","TAG");
     }
 
     @Override

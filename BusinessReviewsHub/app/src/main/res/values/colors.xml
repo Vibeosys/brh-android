@@ -15,4 +15,7 @@
     <color name="accentText">#FF4081</color>
     <color name="secondaryText">#d863666b</color>
     <color name="transLoginText">#c9414143</color>
+
+    <color name="over_layer">#c82e2b28</color>
+    <color name="transperentWhite">#c8ffffff</color>
 </resources>
