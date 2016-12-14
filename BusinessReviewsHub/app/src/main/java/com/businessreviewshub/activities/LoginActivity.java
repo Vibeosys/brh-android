@@ -1,9 +1,11 @@
 package com.businessreviewshub.activities;
 
+import android.app.ActivityOptions;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
@@ -60,14 +62,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.et_select_cmp:
-                openDialog();
+                getWindow().setExitTransition(null);
+                getWindow().setEnterTransition(null);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options =
+                            ActivityOptions.makeSceneTransitionAnimation(this, mEdtCmpName, mEdtCmpName.getTransitionName());
+                    startActivityForResult(new Intent(this, SearchCompanyActivity.class), 1, options.toBundle());
+
+                } else {
+                    startActivityForResult(new Intent(getApplicationContext(), SearchCompanyActivity.class), 1);
+                }
                 break;
         }
     }
 
-    private void openDialog() {
-        Dialog dialog = new Dialog(mContext, android.R.style.Theme_Light_NoTitleBar_Fullscreen);
-        dialog.setContentView(R.layout.dialog_select_company);
-        dialog.show();
-    }
 }
