@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.vibeosys.com/"));
                 startActivity(browserIntent);
             }
-        }, 47, 65, 0);
+        }, 43, 69, 0);
         mTxtWebsite.setText(ssWebsite, TextView.BufferType.SPANNABLE);
         mBtnLogin.setOnClickListener(this);
         mEdtCmpName.setOnClickListener(this);

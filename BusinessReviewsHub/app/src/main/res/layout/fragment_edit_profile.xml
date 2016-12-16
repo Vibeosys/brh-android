@@ -28,9 +28,9 @@
                     <LinearLayout
                         android:id="@+id/viewA"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="190dp"
                         android:layout_weight="0"
-                        android:background="@drawable/paytm_logo"
+                        android:background="@drawable/ic_demo_profile_bck"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -172,7 +172,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginEnd="16dp"
                             android:orientation="vertical"
-                            android:layout_marginTop="21dp"
+                            android:layout_marginTop="28dp"
                             android:layout_marginBottom="16dp">
                             <Button
                                 android:layout_width="match_parent"

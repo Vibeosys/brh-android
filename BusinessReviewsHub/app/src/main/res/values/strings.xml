@@ -24,7 +24,8 @@
     <string name="str_btn_clear">Clear</string>
     <string name="str_hint_cust_name">Customer Name</string>
     <string name="str_hint_ph_no">Phone Number</string>
-    <string name="str_login_copyright">Copyright &#169; Business Reviews Hub</string>
+    <string name="str_login_copyright_title">Copyright&#169;</string>
+    <string name="str_login_copyright">Business Reviews Hub</string>
     <string name="str_login_website">Looking for something ? \nVisit our website www.businessreviewshub.com</string>
 
 </resources>

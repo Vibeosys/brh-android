@@ -24,11 +24,11 @@
             android:id="@+id/txtWebsite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="3dp"
             android:gravity="center"
+            android:padding="3dp"
             android:text="@string/str_login_website"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,17 +93,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
+                        android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingEnd="30dp"
-                        android:paddingStart="50dp">
+                        android:paddingStart="30dp">
 
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:layerType="none"
-                            android:textColorHint="@color/colorTxtHint">
 
                             <EditText
                                 android:id="@+id/et_select_cmp"
@@ -120,63 +114,56 @@
                                 android:textCursorDrawable="@drawable/bg_input_cursor"
                                 android:textSize="16sp"
                                 android:transitionName="editCmp" />
-                        </android.support.design.widget.TextInputLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:orientation="horizontal"
+                        android:gravity="center"
                         android:paddingEnd="30dp"
-                        android:paddingStart="50dp">
+                        android:paddingStart="30dp">
 
-                        <android.support.design.widget.TextInputLayout
+
+                        <EditText
+                            android:id="@+id/et_username"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/colorTxtHint">
+                            android:background="@drawable/selector_bg_edit"
+                            android:drawablePadding="8dp"
+                            android:drawableStart="@drawable/ic_person_grey_24"
+                            android:hint="@string/str_hint_username"
+                            android:inputType="textPersonName"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/primaryText2"
+                            android:textCursorDrawable="@drawable/bg_input_cursor"
+                            android:textSize="16sp" />
 
-                            <EditText
-                                android:id="@+id/et_username"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_bg_edit"
-                                android:drawablePadding="8dp"
-                                android:drawableStart="@drawable/ic_person_grey_24"
-                                android:hint="@string/str_hint_username"
-                                android:inputType="textPersonName"
-                                android:paddingBottom="4dp"
-                                android:textColor="@color/primaryText2"
-                                android:textCursorDrawable="@drawable/bg_input_cursor"
-                                android:textSize="16sp" />
-                        </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingEnd="30dp"
-                        android:paddingStart="50dp">
+                        android:paddingStart="30dp">
 
-                        <android.support.design.widget.TextInputLayout
+
+                        <EditText
+                            android:id="@+id/et_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColorHint="@color/colorTxtHint">
-
-                            <EditText
-                                android:id="@+id/et_password"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_bg_edit"
-                                android:drawablePadding="8dp"
-                                android:drawableStart="@drawable/ic_lock_grey_24"
-                                android:hint="@string/str_hint_password"
-                                android:inputType="textPassword"
-                                android:paddingBottom="4dp"
-                                android:textColor="@color/primaryText2"
-                                android:textCursorDrawable="@drawable/bg_input_cursor"
-                                android:textSize="16sp" />
-                        </android.support.design.widget.TextInputLayout>
+                            android:background="@drawable/selector_bg_edit"
+                            android:drawablePadding="8dp"
+                            android:drawableStart="@drawable/ic_lock_grey_24"
+                            android:hint="@string/str_hint_password"
+                            android:inputType="textPassword"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/primaryText2"
+                            android:textCursorDrawable="@drawable/bg_input_cursor"
+                            android:textSize="16sp" />
 
 
                     </LinearLayout>
@@ -187,7 +174,7 @@
                         android:layout_marginTop="15dp"
                         android:orientation="horizontal"
                         android:paddingEnd="30dp"
-                        android:paddingStart="50dp">
+                        android:paddingStart="30dp">
 
                         <Button
                             android:id="@+id/btn_login"
@@ -199,14 +186,25 @@
 
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
                         android:orientation="horizontal"
                         android:paddingEnd="30dp"
-                        android:paddingStart="50dp">
+                        android:paddingStart="30dp">
 
+                        <TextView
+                            android:id="@+id/txtCopyRightTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/str_login_copyright_title"
+                            android:textColor="@color/primaryText2"
+                            android:textSize="10sp" />
                         <TextView
                             android:id="@+id/txtCopyRight"
                             android:layout_width="wrap_content"

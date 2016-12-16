@@ -6,180 +6,194 @@
     android:layout_height="match_parent"
     tools:context="com.businessreviewshub.MainActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/cv"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="30dp"
-        android:foregroundGravity="center"
-        android:src="@drawable/sample_logo" />
-
-    <TextView
-        android:id="@+id/txtLogin"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="Flipcart"
-        android:textColor="@color/primaryText2"
-        android:textSize="24sp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cv"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_below="@+id/imgLogo"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="3dp"
-        app:cardUseCompatPadding="true">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/sample_logo" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="Flipcart"
+            android:textColor="@color/primaryText2"
+            android:textSize="24sp" />
+    </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/txtSendSMS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_toEndOf="@+id/imageView"
-                    android:text="@string/str_send_sms"
-                    android:textColor="@color/colorTxtLogin"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="22dp"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_send_grey_24" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/txtSendSMS"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="8dp"
-                    android:background="#2fa881" />
-            </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_below="@+id/firstLayout">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_below="@+id/firstLayout"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="6dp"
+            android:layout_marginTop="8dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:gravity="center"
+                android:layout_height="match_parent"
+
                 android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@color/colorPrimaryDark"
+                    >
+
+                    <TextView
+                        android:id="@+id/txtSendSMS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/str_send_sms"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_alignTop="@+id/imageView"
+                        android:layout_centerHorizontal="true" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="22dp"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_paper_new_white_24" />
+
+
+                </RelativeLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColorHint="@color/colorTxtHint">
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/et_customer_name"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/selector_bg_edit"
-                            android:drawablePadding="8dp"
-                            android:drawableStart="@drawable/ic_person_grey_24"
-                            android:hint="@string/str_hint_cust_name"
-                            android:inputType="text"
-                            android:paddingBottom="4dp"
-                            android:textColor="@color/primaryText2"
-                            android:textCursorDrawable="@drawable/bg_input_cursor"
-                            android:textSize="20sp" />
-                    </android.support.design.widget.TextInputLayout>
+                            android:textColorHint="@color/colorTxtHint">
+
+                            <EditText
+                                android:id="@+id/et_customer_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/selector_bg_edit"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_person_grey_24"
+                                android:hint="@string/str_hint_cust_name"
+                                android:inputType="text"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/primaryText2"
+                                android:textCursorDrawable="@drawable/bg_input_cursor"
+                                android:textSize="20sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="@color/colorTxtHint">
+
+                            <EditText
+                                android:id="@+id/et_ph_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/selector_bg_edit"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_phone_grey_24"
+                                android:hint="@string/str_hint_ph_no"
+                                android:inputType="phone"
+                                android:maxLength="14"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/colorEdtLogin"
+                                android:textCursorDrawable="@drawable/bg_input_cursor"
+                                android:textSize="20sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
+                    <Button
+                        android:id="@+id/btn_send_sms"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColorHint="@color/colorTxtHint">
+                        android:layout_margin="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_custom"
+                        android:text="@string/str_btn_send_sms"
+                        android:textColor="@android:color/white"></Button>
 
-                        <EditText
-                            android:id="@+id/et_ph_no"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/selector_bg_edit"
-                            android:drawablePadding="8dp"
-                            android:drawableStart="@drawable/ic_phone_grey_24"
-                            android:hint="@string/str_hint_ph_no"
-                            android:inputType="phone"
-                            android:maxLength="14"
-                            android:paddingBottom="4dp"
-                            android:textColor="@color/colorEdtLogin"
-                            android:textCursorDrawable="@drawable/bg_input_cursor"
-                            android:textSize="20sp" />
-                    </android.support.design.widget.TextInputLayout>
+                    <TextView
+                        android:id="@+id/btn_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:layout_weight="0"
+                        android:background="@android:color/white"
+                        android:text="@string/str_btn_clear"
+                        android:textColor="@color/colorPrimaryDark"></TextView>
+
                 </LinearLayout>
-
             </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_margin="15dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+    </ScrollView>
 
-                <Button
-                    android:id="@+id/btn_send_sms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_custom"
-                    android:text="@string/str_btn_send_sms"
-                    android:textColor="@android:color/white"></Button>
-
-                <Button
-                    android:id="@+id/btn_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_custom_cancel"
-                    android:text="@string/str_btn_clear"
-                    android:textColor="@android:color/white"></Button>
-
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+</LinearLayout>
 </RelativeLayout>
