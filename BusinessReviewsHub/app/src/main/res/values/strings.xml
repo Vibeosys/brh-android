@@ -13,6 +13,7 @@
     <string name="str_hint_first_name">Enter First Name</string>
     <string name="str_hint_last_name">Enter Last Name</string>
     <string name="str_hint_password">Enter Password</string>
+    <string name="str_profile_save">Save</string>
     <!-- Login Activity-->
     <string name="str_login_activity">Login</string>
     <string name="str_btn_login">LOGIN</string>

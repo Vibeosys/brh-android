@@ -169,12 +169,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
                             android:orientation="vertical"
+                            android:layout_marginTop="21dp"
                             android:layout_marginBottom="16dp">
                             <Button
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Sign Out"
+                                android:text="@string/str_profile_save"
                                 android:background="@drawable/button_custom"
                                 android:textColor="@android:color/white"/>
                         </LinearLayout>
@@ -188,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:clickable="true"
-                    android:src="@drawable/ic_save_white_24dp"
+                    android:src="@drawable/ic_power_settings_new_white_24dp"
                     app:layout_anchor="@id/viewA"
                     app:layout_anchorGravity="bottom|right|end" />
 

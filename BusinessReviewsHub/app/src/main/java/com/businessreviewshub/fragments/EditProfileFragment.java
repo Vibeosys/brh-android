@@ -28,12 +28,6 @@ public class EditProfileFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       /* ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.custom_action_bar, null);
-        actionBar.setCustomView(v);
-        setHasOptionsMenu(true);*/
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle("Profile");
     }
@@ -51,15 +45,11 @@ public class EditProfileFragment extends BaseFragment {
             public void onFocusChange(View view, boolean b) {
                 if(b)
                 {
-                    Log.d("TAG","TAG");
                     mUserFirstName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                    Log.d("TAG","TAG");
-                    Log.d("TAG","TAG");
                 }
                 else if(!b)
                 {
                     mUserFirstName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
-
                 }
             }
         });

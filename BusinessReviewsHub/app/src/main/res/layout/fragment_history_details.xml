@@ -65,7 +65,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Online Shopping"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -81,7 +81,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:30 AM"
                         android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
@@ -144,7 +152,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Online Shopping"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -160,7 +168,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:32 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -222,7 +239,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Logistic"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -238,7 +255,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:34 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -300,7 +326,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Online Recharge"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -316,7 +342,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:50 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -378,7 +413,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Kinds Shopping"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -394,9 +429,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2:30 AM"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -456,7 +499,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Logistic"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -472,7 +515,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="3:20 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -534,7 +586,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Online Shopping"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -550,7 +602,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:34 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -611,7 +672,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Online Recharge"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -627,7 +688,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="5:23 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -689,7 +759,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Logistic"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -705,7 +775,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="9:30 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -767,7 +846,7 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Lorem ipsum dolor...."
+                            android:text="Logistic"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
                     </LinearLayout>
@@ -783,7 +862,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12/02/2017"
+                        android:text="12 Sep"
+                        android:textColor="@color/secondaryText"
+                        android:textSize="16sp" />
+
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="3:20 AM"
+                        android:textColor="@color/secondaryText"
                         android:textSize="16sp" />
 
                 </LinearLayout>
