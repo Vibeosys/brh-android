@@ -22,4 +22,6 @@
     <color name="transperentWhite">#c8ffffff</color>
     <color name="transWhiteLogin">#9cffffff</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="colorBottom_yellow">#f1c40f</color>
 </resources>
