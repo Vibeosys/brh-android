@@ -57,7 +57,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_margin="16dp"
                     android:foregroundGravity="center"
-                    android:src="@drawable/sample_logo" />
+                    android:src="@mipmap/ic_launcher" />
 
                 <!-- <android.support.v7.widget.CardView
                      android:id="@+id/cv"
@@ -92,36 +92,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingEnd="30dp"
-                        android:paddingStart="30dp">
-
-
-                            <EditText
-                                android:id="@+id/et_select_cmp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_bg_edit"
-                                android:drawablePadding="8dp"
-                                android:drawableStart="@drawable/ic_company_grey_24"
-                                android:focusable="false"
-                                android:hint="@string/str_hint_select_company"
-                                android:inputType="none"
-                                android:paddingBottom="4dp"
-                                android:textColor="@color/primaryText2"
-                                android:textCursorDrawable="@drawable/bg_input_cursor"
-                                android:textSize="16sp"
-                                android:transitionName="editCmp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:gravity="center"
                         android:paddingEnd="30dp"
                         android:paddingStart="30dp">
 
@@ -159,12 +131,40 @@
                             android:drawablePadding="8dp"
                             android:drawableStart="@drawable/ic_lock_grey_24"
                             android:hint="@string/str_hint_password"
-                            android:inputType="textPassword"
+                            android:inputType="textPersonName"
                             android:paddingBottom="4dp"
                             android:textColor="@color/primaryText2"
                             android:textCursorDrawable="@drawable/bg_input_cursor"
                             android:textSize="16sp" />
 
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingEnd="30dp"
+                        android:paddingStart="30dp">
+
+
+                        <EditText
+                            android:id="@+id/et_select_cmp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_bg_edit"
+                            android:drawablePadding="8dp"
+                            android:drawableStart="@drawable/ic_company_grey_24"
+                            android:focusable="false"
+                            android:hint="@string/str_hint_select_company"
+                            android:inputType="none"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/primaryText2"
+                            android:textCursorDrawable="@drawable/bg_input_cursor"
+                            android:textSize="16sp"
+                            android:transitionName="editCmp" />
 
                     </LinearLayout>
 
@@ -205,6 +205,7 @@
                             android:text="@string/str_login_copyright_title"
                             android:textColor="@color/primaryText2"
                             android:textSize="10sp" />
+
                         <TextView
                             android:id="@+id/txtCopyRight"
                             android:layout_width="wrap_content"

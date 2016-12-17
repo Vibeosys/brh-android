@@ -8,21 +8,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
+        android:background="@drawable/ic_history_image"
         android:gravity="bottom"
-        android:orientation="vertical"
-        android:background="@drawable/ic_history_image">
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/over_layer"
             android:gravity="bottom">
+
             <com.businessreviewshub.views.RobotoTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SMS History"
                 android:padding="12dp"
-                android:textSize="24sp"
-                android:textColor="@android:color/white"/>
+                android:text="SMS History"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
         </LinearLayout>
 
 
@@ -32,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -40,17 +43,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorTxtHint">
+
                     <com.businessreviewshub.views.RobotoTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
                         android:padding="12dp"
+                        android:text="@string/str_history_list_title"
                         android:textColor="@color/colorBlack"
-                        android:text="@string/str_history_list_title"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -78,13 +83,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -114,12 +120,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -127,10 +135,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
                             android:text="9:30 AM"
+                            android:layout_weight="1"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -165,13 +174,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -201,12 +211,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -214,10 +226,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|top"
                             android:text="9:32 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -252,13 +265,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -288,12 +302,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -301,10 +317,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="9:34 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -339,13 +356,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -375,12 +393,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -388,10 +408,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|top"
                             android:text="9:50 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -426,13 +447,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -462,6 +484,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
@@ -469,16 +492,18 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="12 Sep"
+                            android:layout_weight="0.5"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="2:30 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -512,13 +537,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -554,6 +580,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -561,10 +588,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="3:20 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -599,13 +627,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -635,12 +664,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -648,10 +679,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="9:34 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -685,13 +717,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -721,12 +754,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -734,10 +769,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="5:23 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -772,13 +808,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -808,12 +845,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -821,10 +860,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:gravity="center|top"
+                            android:layout_weight="1"
                             android:text="9:30 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -859,13 +899,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
+                        android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="0"
                             android:orientation="vertical">
 
                             <com.businessreviewshub.views.RobotoTextView
@@ -895,12 +936,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_weight="0.5"
                             android:text="12 Sep"
                             android:textColor="@color/secondaryText"
                             android:textSize="16sp" />
@@ -908,10 +951,11 @@
                         <com.businessreviewshub.views.RobotoTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center|top"
                             android:text="3:20 AM"
                             android:textColor="@color/secondaryText"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
