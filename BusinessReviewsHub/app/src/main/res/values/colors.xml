@@ -21,4 +21,5 @@
     <color name="over_layer">#c82e2b28</color>
     <color name="transperentWhite">#c8ffffff</color>
     <color name="transWhiteLogin">#9cffffff</color>
+    <color name="colorBlack">#000000</color>
 </resources>

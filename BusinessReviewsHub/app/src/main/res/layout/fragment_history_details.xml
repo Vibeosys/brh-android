@@ -16,10 +16,10 @@
             android:layout_height="match_parent"
             android:background="@color/over_layer"
             android:gravity="bottom">
-            <com.businessreviewshub.views.RobotoBoldTextView
+            <com.businessreviewshub.views.RobotoTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History"
+                android:text="SMS History"
                 android:padding="12dp"
                 android:textSize="24sp"
                 android:textColor="@android:color/white"/>
@@ -40,6 +40,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTxtHint">
+                    <com.businessreviewshub.views.RobotoTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:padding="12dp"
+                        android:textColor="@color/colorBlack"
+                        android:text="@string/str_history_list_title"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

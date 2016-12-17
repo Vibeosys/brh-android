@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Business Reviews Hub</string>
     <!-- Bottom Bar -->
-    <string name="str_send_sms">Send SMS</string>
+    <string name="str_send_sms">New Message</string>
     <string name="str_history">History</string>
     <string name="str_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -27,5 +27,6 @@
     <string name="str_login_copyright_title">Copyright&#169;</string>
     <string name="str_login_copyright">Business Reviews Hub</string>
     <string name="str_login_website">Looking for something ? \nVisit our website www.businessreviewshub.com</string>
+    <string name="str_history_list_title">Customer SMS History</string>
 
 </resources>
