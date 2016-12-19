@@ -25,8 +25,11 @@
     <string name="str_hint_cust_name">Customer Name</string>
     <string name="str_hint_ph_no">Phone Number</string>
     <string name="str_login_copyright_title">Copyright&#169;</string>
-    <string name="str_login_copyright">Business Reviews Hub</string>
+    <string name="str_login_copyright">&#169; Business Reviews Hub</string>
+    <string name="str_login_rightRes">All rights reserved</string>
     <string name="str_login_website">Looking for something ? \nVisit our website www.businessreviewshub.com</string>
     <string name="str_history_list_title">Customer SMS History</string>
+    <string name="str_poweredby">Powered by</string>
+    <string name="str_powered_business">Business Reviews Hub</string>
 
 </resources>

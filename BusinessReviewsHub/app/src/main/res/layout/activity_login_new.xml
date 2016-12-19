@@ -55,6 +55,7 @@
                     android:layout_height="120dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
+                    android:padding="32dp"
                     android:layout_margin="16dp"
                     android:foregroundGravity="center"
                     android:src="@mipmap/ic_launcher" />
@@ -86,7 +87,7 @@
                 <LinearLayout
                     android:id="@+id/user_detail_layout"
                     android:layout_width="300dp"
-                    android:layout_height="290dp"
+                    android:layout_height="310dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -189,14 +190,14 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_marginTop="12dp"
                         android:gravity="center"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:paddingEnd="30dp"
                         android:paddingStart="30dp">
 
-                        <TextView
+                       <!-- <TextView
                             android:id="@+id/txtCopyRightTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -204,21 +205,30 @@
                             android:layout_marginTop="4dp"
                             android:text="@string/str_login_copyright_title"
                             android:textColor="@color/primaryText2"
-                            android:textSize="10sp" />
+                            android:textSize="10sp" />-->
 
                         <TextView
                             android:id="@+id/txtCopyRight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="4dp"
                             android:layout_marginTop="4dp"
                             android:padding="3dp"
                             android:text="@string/str_login_copyright"
                             android:textColor="@color/primaryText2"
                             android:textSize="14sp" />
 
+                        <TextView
+                            android:id="@+id/txtRightRevers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="@string/str_login_rightRes"
+                            android:textColor="@color/primaryText2"
+                            android:textSize="14sp" />
+
 
                     </LinearLayout>
+
 
                     <!--<RelativeLayout
                         android:layout_width="match_parent"

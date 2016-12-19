@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#D10010</color>
 
     <color name="colorEdtLogin">#2fa881</color>
     <color name="colorTxtLogin">#FFCC00</color>
@@ -24,4 +24,6 @@
     <color name="colorBlack">#000000</color>
 
     <color name="colorBottom_yellow">#f1c40f</color>
+    <color name="history_overlay">#eae9e9</color>
+    <color name="logo_orange">#FF9E26</color>
 </resources>
