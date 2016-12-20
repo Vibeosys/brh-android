@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
                 break;
-            case R.id.et_select_cmp:
+            /*case R.id.et_select_cmp:
                 getWindow().setExitTransition(null);
                 getWindow().setEnterTransition(null);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     startActivityForResult(new Intent(getApplicationContext(), SearchCompanyActivity.class), 1);
                 }
-                break;
+                break;*/
         }
     }
 
