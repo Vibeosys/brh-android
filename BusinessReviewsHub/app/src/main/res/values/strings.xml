@@ -19,7 +19,7 @@
     <string name="str_btn_login">LOGIN</string>
     <string name="str_hint_username">User Name</string>
     <string name="str_btn_sign_in">Sign In</string>
-    <string name="str_hint_select_company">Select Company</string>
+    <string name="str_hint_select_company">Company Code</string>
     <string name="str_btn_send_sms">Send Sms</string>
     <string name="str_btn_clear">Clear</string>
     <string name="str_hint_cust_name">Customer Name</string>

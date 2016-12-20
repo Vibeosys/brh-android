@@ -73,8 +73,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -111,7 +111,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="4324390432"
+                                android:text="432-439-0432"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -165,8 +165,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -203,7 +203,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="2341215678"
+                                android:text="234-121-5678"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -257,8 +257,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -295,7 +295,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="5472391120"
+                                android:text="547-239-1120"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -349,8 +349,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -387,7 +387,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="5632318879"
+                                android:text="563-231-8879"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -441,8 +441,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -479,7 +479,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="2117843340"
+                                android:text="211-784-3340"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -532,8 +532,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_chat_24" />
 
@@ -570,7 +570,7 @@
                             <com.businessreviewshub.views.RobotoTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="4329984589"
+                                android:text="432-998-4589"
                                 android:textColor="@color/secondaryText"
                                 android:textSize="16sp" />
                         </LinearLayout>
