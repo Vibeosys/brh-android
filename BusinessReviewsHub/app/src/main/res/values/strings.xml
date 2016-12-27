@@ -31,5 +31,10 @@
     <string name="str_history_list_title">Customer SMS History</string>
     <string name="str_poweredby">Powered by</string>
     <string name="str_powered_business">Business Reviews Hub</string>
+    <!-- Login screen-->
+    <string name="str_err_server_err">Server Error</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="dlg_ok">Ok</string>
+    <string name="dlg_cancel">Cancel</string>
 
 </resources>
