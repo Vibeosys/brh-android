@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.businessreviewshub.R;
 
 public class EditProfileFragment extends BaseFragment {
-    private EditText mUserFirstName, mUserLastName, mUserPassword;
+    private EditText mUserFirstName, mUserPhoneNo, mUserPassword;
 
     public EditProfileFragment() {
         // Required empty public constructor
@@ -38,36 +38,38 @@ public class EditProfileFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         // Inflate the layout for this fragment
         mUserFirstName = (EditText) view.findViewById(R.id.firstNameTv);
-        mUserLastName = (EditText) view.findViewById(R.id.lastNameTv);
+        mUserPhoneNo = (EditText) view.findViewById(R.id.lastNameTv);
         mUserPassword = (EditText) view.findViewById(R.id.passwordTv);
+        mUserFirstName.setText("" + mSessionManager.getEmployeeName());
+        mUserPhoneNo.setText("" + mSessionManager.getEmployeePhone());
+        mUserPassword.setText(""+mSessionManager.getEmployeePassword());
         mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b)
-                {
+                if (b) {
+
                     mUserFirstName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                }
-                else if(!b)
-                {
+                } else if (!b) {
                     mUserFirstName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
                 }
             }
         });
-        mUserLastName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mUserPhoneNo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b)
-                mUserLastName.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                else if(!b)
-                    mUserLastName.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
+                if (b) {
+
+                    mUserPhoneNo.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                } else if (!b)
+                    mUserPhoneNo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
             }
         });
         mUserPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b)
-                mUserPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                else if(!b)
+                if (b)
+                    mUserPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                else if (!b)
                     mUserPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
             }
         });

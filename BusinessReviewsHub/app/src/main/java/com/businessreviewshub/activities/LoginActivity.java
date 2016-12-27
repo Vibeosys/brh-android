@@ -167,6 +167,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 userDTO.setEmpCode(empCodeStr);
                 userDTO.setEmpName(empNameStr);
                 userDTO.setPhoneNo(empPhoneStr);
+                userDTO.setEmpPwd(mEditPassword.getText().toString().trim());
                 UserAuth userAuth = new UserAuth();
                 userAuth.saveAuthenticationInfo(userDTO, getApplicationContext());
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

@@ -39,13 +39,15 @@ public class UserAuth {
             return;
 
         if (userInfo.getEmpCode() == null || userInfo.getEmpCode() == "" ||
-                userInfo.getEmpName() == null || userInfo.getEmpName() == "")
+                userInfo.getEmpName() == null || userInfo.getEmpName() == ""||
+                userInfo.getEmpPwd()==null||userInfo.getEmpPwd()=="")
             return;
 
         SessionManager theSessionManager = SessionManager.getInstance(context);
         theSessionManager.setCompanyCode(userInfo.getEmpCode());
         theSessionManager.setEmployeeName(userInfo.getEmpName());
         theSessionManager.setEmployeePhone(userInfo.getPhoneNo());
+        theSessionManager.setEmployeePassword(userInfo.getEmpPwd());
         Log.d("TAG","TAG");
         Log.d("TAG","TAG");
         Log.d("TAG","TAG");

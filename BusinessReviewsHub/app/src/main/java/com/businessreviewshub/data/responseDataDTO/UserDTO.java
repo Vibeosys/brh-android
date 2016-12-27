@@ -7,8 +7,15 @@ public class UserDTO {
     private String EmpCode;
     private String EmpName;
     private String PhoneNo;
+    private String EmpPwd;
 
+    public String getEmpPwd() {
+        return EmpPwd;
+    }
 
+    public void setEmpPwd(String empPwd) {
+        EmpPwd = empPwd;
+    }
 
     public String getEmpCode() {
         return EmpCode;

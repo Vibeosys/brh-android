@@ -36,8 +36,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
                             android:background="@color/over_layer"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <de.hdodenhof.circleimageview.CircleImageView
@@ -73,11 +73,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_marginTop="44dp"
+                                android:background="@android:color/transparent"
+                                android:drawableRight="@drawable/ic_create_black_24dp"
                                 android:padding="4dp"
                                 android:singleLine="true"
-                                android:text="Simon"
-                                android:drawableRight="@drawable/ic_create_black_24dp"
-                                android:background="@android:color/transparent"
                                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
                             <TextView
@@ -105,11 +104,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_below="@+id/SplitLine_hor1"
-                                android:padding="4dp"
-                                android:text="Jones"
                                 android:background="@android:color/transparent"
-                                android:singleLine="true"
+
                                 android:drawableRight="@drawable/ic_create_black_24dp"
+                                android:padding="4dp"
+                                android:singleLine="true"
                                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
                             <TextView
@@ -119,7 +118,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_below="@+id/lastNameTv"
                                 android:padding="4dp"
-                                android:text="Last Name"
+                                android:text="Phone Number"
                                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
                             <View
@@ -137,12 +136,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_below="@+id/SplitLine_hor2"
-                                android:padding="4dp"
-                                android:text="abcdsed"
                                 android:background="@android:color/transparent"
-                                android:singleLine="true"
                                 android:drawableRight="@drawable/ic_create_black_24dp"
-                                android:inputType="textPassword"
+                                android:inputType="text"
+                                android:padding="4dp"
+                                android:singleLine="true"
+
                                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
                             <TextView
@@ -165,21 +164,23 @@
 
 
                         </RelativeLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="16dp"
                             android:layout_marginEnd="16dp"
-                            android:orientation="vertical"
+                            android:layout_marginStart="16dp"
                             android:layout_marginTop="28dp"
-                            android:layout_marginBottom="16dp">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <Button
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/str_profile_save"
                                 android:background="@drawable/button_custom"
-                                android:textColor="@android:color/white"/>
+                                android:text="@string/str_profile_save"
+                                android:textColor="@android:color/white" />
                         </LinearLayout>
                     </LinearLayout>
 

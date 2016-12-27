@@ -50,6 +50,7 @@ public class SessionManager {
                 Log.e("SharedPref", "No shared preferences are changed");
         }
     }
+
     private static boolean addOrUdateSharedPreferences() {
 
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
@@ -58,16 +59,19 @@ public class SessionManager {
         editor.apply();
         return true;
     }
+
     private static void setValuesInSharedPrefs(String sharedPrefKey, long sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putLong(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
+
     private static void setValuesInSharedPrefs(String sharedPrefKey, String sharedPrefValue) {
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putString(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
+
     public long getEmployeeCode() {
         return mProjectSharedPref.getLong(PropertyTypeConstants.EMPLOYEE_CODE, 0);
     }
@@ -99,7 +103,16 @@ public class SessionManager {
     public void setEmployeePhone(String empPhone) {
         setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_PHONE, empPhone);
     }
+
+    public String getEmployeePassword() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.EMPLOYEE_PASSWORD, null);
+    }
+
+    public void setEmployeePassword(String empPassword) {
+        setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_PASSWORD, empPassword);
+    }
+
     public String getLogInUrl() {
-        return mProjectSharedPref.getString(PropertyTypeConstants.LOGIN_ENDPOINT_URI,null);
+        return mProjectSharedPref.getString(PropertyTypeConstants.LOGIN_ENDPOINT_URI, null);
     }
 }

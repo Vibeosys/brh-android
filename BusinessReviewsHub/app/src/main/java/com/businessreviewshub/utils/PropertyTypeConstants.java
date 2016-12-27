@@ -19,4 +19,5 @@ public class PropertyTypeConstants {
     public static  final String EMPLOYEE_NAME="user.name";
     public static  final String EMPLOYEE_PHONE="user.phone";
 
+
 }
