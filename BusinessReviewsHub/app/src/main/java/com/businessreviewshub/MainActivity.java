@@ -1,5 +1,6 @@
 package com.businessreviewshub;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,13 +9,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.businessreviewshub.activities.BaseActivity;
+import com.businessreviewshub.activities.LoginActivity;
 import com.businessreviewshub.fragments.EditProfileFragment;
 import com.businessreviewshub.fragments.HistoryDetailsFragment;
 import com.businessreviewshub.fragments.SendSMSFragment;
+import com.businessreviewshub.utils.UserAuth;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private LinearLayout mSendSmsLay, mHistoryLay, mProfileLay;
     private static final String SMS_FRAGMENT = "sms";
@@ -47,7 +51,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSendSmsLay.setOnClickListener(this);
         mHistoryLay.setOnClickListener(this);
         mProfileLay.setOnClickListener(this);
+        if (!UserAuth.isUserLoggedIn()) {
+            // finish();
+            callLogin();
+            return;
+        }
         setUpFragment(R.id.sendSmsLay);
+    }
+
+    private void callLogin() {
+
+        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        finish();
     }
 
     @Override
