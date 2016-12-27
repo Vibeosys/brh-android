@@ -39,8 +39,8 @@ public class UserAuth {
             return;
 
         if (userInfo.getEmpCode() == null || userInfo.getEmpCode() == "" ||
-                userInfo.getEmpName() == null || userInfo.getEmpName() == ""||
-                userInfo.getEmpPwd()==null||userInfo.getEmpPwd()=="")
+                userInfo.getEmpName() == null || userInfo.getEmpName() == "" ||
+                userInfo.getEmpPwd() == null || userInfo.getEmpPwd() == "")
             return;
 
         SessionManager theSessionManager = SessionManager.getInstance(context);
@@ -48,9 +48,10 @@ public class UserAuth {
         theSessionManager.setEmployeeName(userInfo.getEmpName());
         theSessionManager.setEmployeePhone(userInfo.getPhoneNo());
         theSessionManager.setEmployeePassword(userInfo.getEmpPwd());
-        Log.d("TAG","TAG");
-        Log.d("TAG","TAG");
-        Log.d("TAG","TAG");
+        theSessionManager.setEmployeeCoded(userInfo.getCompanyCode());
+        Log.d("TAG", "TAG");
+        Log.d("TAG", "TAG");
+        Log.d("TAG", "TAG");
 
     }
 

@@ -11,6 +11,8 @@ public class PropertyTypeConstants {
     public static final String VERSION_NUMBER = "version.number";
     public static final String DATABASE_VERSION_NUMBER = "database.version.number";
     public static final String LOGIN_ENDPOINT_URI="api.endpoint.login";
+    public static final String SEND_SMS="api.endpoint.sms";
+    public static final String SMS_HISTORY="api.endpoint.history";
 
 
     public static  final String EMPLOYEE_CODE="user.id";

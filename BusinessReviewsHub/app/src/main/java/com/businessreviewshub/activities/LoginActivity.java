@@ -141,6 +141,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onVolleyErrorReceived(@NonNull VolleyError error, int requestToken) {
         progressDialog.dismiss();
+        customAlterDialog(getResources().getString(R.string.str_err_server_err), error.getMessage());
 
     }
 
@@ -168,6 +169,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 userDTO.setEmpName(empNameStr);
                 userDTO.setPhoneNo(empPhoneStr);
                 userDTO.setEmpPwd(mEditPassword.getText().toString().trim());
+                userDTO.setCompanyCode(mEditCompanyCode.getText().toString().trim());
                 UserAuth userAuth = new UserAuth();
                 userAuth.saveAuthenticationInfo(userDTO, getApplicationContext());
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

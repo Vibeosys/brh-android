@@ -6,21 +6,21 @@ import com.businessreviewshub.data.BaseDTO;
  * Created by shrinivas on 27-12-2016.
  */
 public class UserRequestDTO extends BaseDTO {
-    private long empCode;
+    private String empCode;
     private String password;
     private String companyCode;
 
-    public UserRequestDTO(long empCode, String password, String companyCode) {
+    public UserRequestDTO(String empCode, String password, String companyCode) {
         this.empCode = empCode;
         this.password = password;
         this.companyCode = companyCode;
     }
 
-    public long getEmpCode() {
+    public String getEmpCode() {
         return empCode;
     }
 
-    public void setEmpCode(long empCode) {
+    public void setEmpCode(String empCode) {
         this.empCode = empCode;
     }
 

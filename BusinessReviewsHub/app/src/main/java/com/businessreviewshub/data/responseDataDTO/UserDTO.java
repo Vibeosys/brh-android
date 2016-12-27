@@ -8,6 +8,15 @@ public class UserDTO {
     private String EmpName;
     private String PhoneNo;
     private String EmpPwd;
+    private String companyCode;
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
+    }
 
     public String getEmpPwd() {
         return EmpPwd;

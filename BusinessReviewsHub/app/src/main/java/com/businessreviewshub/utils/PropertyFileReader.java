@@ -54,4 +54,10 @@ public class PropertyFileReader {
     public String getUserLoginUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.LOGIN_ENDPOINT_URI);
     }
+    public String getSendSmsUrl() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.SEND_SMS);
+    }
+    public String getSmsHistoryUrl() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.SMS_HISTORY);
+    }
 }

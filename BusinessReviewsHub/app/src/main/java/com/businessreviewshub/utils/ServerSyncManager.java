@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class ServerSyncManager {
     private SessionManager mSessionManager;
     private Context mContext;
-   // private DbRepository mDbRepository = null;
+    // private DbRepository mDbRepository = null;
     private OnSuccessResultReceived mOnSuccessResultReceived;
     private OnErrorResultReceived mErrorReceived;
     private String TAG = ServerSyncManager.class.getSimpleName();
@@ -38,7 +38,7 @@ public class ServerSyncManager {
     public ServerSyncManager(@NonNull Context context, @NonNull SessionManager sessionManager) {
         mContext = context;
         mSessionManager = sessionManager;
-       // mDbRepository = new DbRepository(mContext, mSessionManager);
+        // mDbRepository = new DbRepository(mContext, mSessionManager);
     }
 
     public void uploadDataToServer(int requestToken, String url, BaseRequestDTO params) {
@@ -62,8 +62,12 @@ public class ServerSyncManager {
 
     private String prepareUploadJsonFromData(BaseRequestDTO params) {
 
-        UserRequestDTO userRequestDTO = new UserRequestDTO(mSessionManager.getEmployeeCode(),
-                mSessionManager.getPassword(),mSessionManager.getCompanyCode());
+        String comapnyCode = mSessionManager.getCompanyCode();
+        String userPwd = mSessionManager.getPassword();
+        String EmployeeCode = mSessionManager.getEmployeeCode();
+
+        UserRequestDTO userRequestDTO = new UserRequestDTO(mSessionManager.getCompanyCode(),
+                mSessionManager.getPassword(), mSessionManager.getEmployeeCode());
        /* UserRequestDTO userRequestDTO = new UserRequestDTO(mSessionManager.getUserId(),
                 mSessionManager.getEmail());*/
         //get the values from session manager
@@ -120,7 +124,7 @@ public class ServerSyncManager {
 
     private void callToLogOut() {
 
-       // mDbRepository.deleteAllData();
+        // mDbRepository.deleteAllData();
         //UserAuth.CleanAuthenticationInfo();
         Intent loginIntent = new Intent(mContext, LoginActivity.class);
         loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
