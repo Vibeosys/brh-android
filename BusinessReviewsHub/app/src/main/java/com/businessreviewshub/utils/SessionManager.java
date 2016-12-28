@@ -57,6 +57,7 @@ public class SessionManager {
         editor.putString(PropertyTypeConstants.LOGIN_ENDPOINT_URI, mPropertyFileReader.getUserLoginUrl());
         editor.putString(PropertyTypeConstants.SEND_SMS,mPropertyFileReader.getSendSmsUrl());
         editor.putString(PropertyTypeConstants.SMS_HISTORY,mPropertyFileReader.getSmsHistoryUrl());
+        editor.putString(PropertyTypeConstants.EDIT_PROFILE,mPropertyFileReader.getEditProfilerUrl());
         editor.apply();
         return true;
     }
@@ -127,5 +128,8 @@ public class SessionManager {
     }
     public String getSendSMS() {
         return mProjectSharedPref.getString(PropertyTypeConstants.SEND_SMS, null);
+    }
+    public String getEditProfileUrl() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.EDIT_PROFILE, null);
     }
 }

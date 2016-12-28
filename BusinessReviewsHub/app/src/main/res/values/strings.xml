@@ -40,4 +40,8 @@
     <string name="str_sms_success">SMS SEND</string>
     <string name="str_sms_Message">Thank you for your feedback</string>
 
+    <!-- Profile  Update-->
+    <string name="str_prfile_success">Profile updated Successfully</string>
+    <string name="str_prfile">User Profile</string>
+
 </resources>

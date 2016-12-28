@@ -13,7 +13,7 @@ public class PropertyTypeConstants {
     public static final String LOGIN_ENDPOINT_URI="api.endpoint.login";
     public static final String SEND_SMS="api.endpoint.sms";
     public static final String SMS_HISTORY="api.endpoint.history";
-
+    public static final String EDIT_PROFILE="api.endpoint.profile";
 
     public static  final String EMPLOYEE_CODE="user.id";
     public static  final String EMPLOYEE_PASSWORD="user.pw";

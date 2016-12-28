@@ -60,4 +60,7 @@ public class PropertyFileReader {
     public String getSmsHistoryUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.SMS_HISTORY);
     }
+    public String getEditProfilerUrl() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.EDIT_PROFILE);
+    }
 }
