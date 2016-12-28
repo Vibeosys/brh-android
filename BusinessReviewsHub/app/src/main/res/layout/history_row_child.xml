@@ -42,7 +42,6 @@
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Smith Johnson"
                     android:textColor="@color/primaryText"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -57,7 +56,6 @@
                     android:id="@+id/Phone_no"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="432-439-0432"
                     android:textColor="@color/secondaryText"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -76,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="center"
-                android:text="12 Sep"
                 android:textColor="@color/secondaryText"
                 android:textSize="16sp" />
 
@@ -86,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center|top"
-                android:text="9:30 AM"
                 android:textColor="@color/secondaryText"
                 android:textSize="14sp" />
 

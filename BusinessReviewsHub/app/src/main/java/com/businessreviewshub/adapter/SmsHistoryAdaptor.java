@@ -60,27 +60,32 @@ public class SmsHistoryAdaptor extends BaseAdapter {
             viewHolder.mUserOnlyDate = (RobotoTextView) row.findViewById(R.id.date_month);
             viewHolder.mUserOnlyTime = (RobotoTextView) row.findViewById(R.id.time_details);
             row.setTag(viewHolder);
-        } else {
+        } else
             viewHolder = (ViewHolder) view.getTag();
-            SmsHistoryResponseDTO historyResponseDTO = smsHistoryResponseDTOs.get(i);
-            String customerName = historyResponseDTO.getCustomerName();
-            String customerPhoneNumber = historyResponseDTO.getPhoneNo();
+        SmsHistoryResponseDTO historyResponseDTO = smsHistoryResponseDTOs.get(i);
+        String customerName = historyResponseDTO.getCustomerName();
+        String customerPhoneNumber = historyResponseDTO.getPhoneNo();
 
-            String customerDate = historyResponseDTO.getSmsDate();
-            Date tempDate = dateUtils.getFormattedDate(customerDate);
-            String stringMonth = (String) android.text.format.DateFormat.format("MMM", tempDate);
-            String day = (String) android.text.format.DateFormat.format("dd", tempDate);
-            String timeStr = (String) android.text.format.DateFormat.format("h:mm a", tempDate);
+        String customerDate = historyResponseDTO.getSmsDate();
+        Date tempDate = dateUtils.getFormattedDate(customerDate);
+        String stringMonth = (String) android.text.format.DateFormat.format("MMM", tempDate);
+        String day = (String) android.text.format.DateFormat.format("dd", tempDate);
+        String timeStr = (String) android.text.format.DateFormat.format("h:mm a", tempDate);
 
-            viewHolder.mUserName.setText(customerName);
-            viewHolder.mUserPhoneNo.setText(customerPhoneNumber);
-            viewHolder.mUserOnlyDate.setText("" + day + "\t" + "" + stringMonth);
-            viewHolder.mUserOnlyTime.setText(timeStr);
-        }
+        viewHolder.mUserName.setText(customerName);
+        viewHolder.mUserPhoneNo.setText(customerPhoneNumber);
+        viewHolder.mUserOnlyDate.setText("" + day + "\t" + "" + stringMonth);
+        viewHolder.mUserOnlyTime.setText(timeStr);
+
         return row;
     }
 
     private class ViewHolder {
         com.businessreviewshub.views.RobotoTextView mUserName, mUserPhoneNo, mUserOnlyDate, mUserOnlyTime;
+    }
+
+    public void addItems(ArrayList<SmsHistoryResponseDTO> smsHistoryResponseDTOs) {
+        this.smsHistoryResponseDTOs = smsHistoryResponseDTOs;
+        notifyDataSetChanged();
     }
 }

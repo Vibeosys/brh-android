@@ -3,6 +3,8 @@ package com.businessreviewshub.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -52,9 +54,7 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
         mServerSyncManager.uploadDataToServer(ServerRequestConstants.REQUEST_SMS_HISTORY,
                 mSessionManager.getSmsHistoryUrl(), baseRequestDTO);
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
+
     }
 
     @Override
@@ -63,7 +63,9 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history_details, container, false);
         mHistoryList = (ListView) view.findViewById(R.id.historyList);
-
+        smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
+        mHistoryList.setAdapter(smsHistoryAdaptor);
+       // smsHistoryAdaptor.notifyDataSetChanged();
 
         return view;
     }
@@ -87,9 +89,18 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
     public void onResultReceived(@NonNull String data, int requestToken) {
 
         smsHistoryResponseDTOs = SmsHistoryResponseDTO.deserializeToArray(data);
-        smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
-        mHistoryList.setAdapter(smsHistoryAdaptor);
-        smsHistoryAdaptor.notifyDataSetChanged();
+       // smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+              /* *//* smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
+                mHistoryList.setAdapter(smsHistoryAdaptor);
+                smsHistoryAdaptor.notifyDataSetChanged();*//**/
+                smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
+
+
+            }
+        });
         progressDialog.cancel();
 
     }
