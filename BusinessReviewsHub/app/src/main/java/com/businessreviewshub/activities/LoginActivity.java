@@ -86,21 +86,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     progressDialog.show();
                     callToLoginWebService();
                 }
-               /* startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();*/
                 break;
-            /*case R.id.et_select_cmp:
-                getWindow().setExitTransition(null);
-                getWindow().setEnterTransition(null);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options =
-                            ActivityOptions.makeSceneTransitionAnimation(this, mEdtCmpName, mEdtCmpName.getTransitionName());
-                    startActivityForResult(new Intent(this, SearchCompanyActivity.class), 1, options.toBundle());
 
-                } else {
-                    startActivityForResult(new Intent(getApplicationContext(), SearchCompanyActivity.class), 1);
-                }
-                break;*/
         }
     }
 
@@ -172,6 +159,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 String empCodeStr = loginResponseDTO.getGetEmpCode();
                 String empNameStr = loginResponseDTO.getEmpName();
                 String empPhoneStr = loginResponseDTO.getPhoneNo();
+                String compLogo = loginResponseDTO.getCompanyLogo();
+                String compName = loginResponseDTO.getCompanyName();
+                String profImg = loginResponseDTO.getProfileImage();
                 UserDTO userDTO = new UserDTO();
                 userDTO.setEmpCode(empCodeStr);
                 userDTO.setEmpName(empNameStr);

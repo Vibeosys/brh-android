@@ -11,32 +11,59 @@ import com.google.gson.JsonParseException;
  */
 public class LoginResponseDTO extends BaseDTO {
     private static final String TAG = LoginResponseDTO.class.getSimpleName();
-    private String EmpCode;
-    private String EmpName;
-    private String PhoneNo;
+    private String empCode;
+    private String empName;
+    private String phoneNo;
+    private String companyLogo;
+    private String companyName;
+    private String profileImage;
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
 
     public String getGetEmpCode() {
-        return EmpCode;
+        return empCode;
     }
 
     public void setGetEmpCode(String getEmpCode) {
-        this.EmpCode = getEmpCode;
+        this.empCode = getEmpCode;
     }
 
     public String getEmpName() {
-        return EmpName;
+        return empName;
     }
 
     public void setEmpName(String empName) {
-        EmpName = empName;
+        this.empName = empName;
     }
 
     public String getPhoneNo() {
-        return PhoneNo;
+        return phoneNo;
     }
 
     public void setPhoneNo(String phoneNo) {
-        PhoneNo = phoneNo;
+        this.phoneNo = phoneNo;
     }
 
     public LoginResponseDTO() {
