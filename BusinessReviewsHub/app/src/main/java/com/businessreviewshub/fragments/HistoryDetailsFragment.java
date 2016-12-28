@@ -89,18 +89,18 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
     public void onResultReceived(@NonNull String data, int requestToken) {
 
         smsHistoryResponseDTOs = SmsHistoryResponseDTO.deserializeToArray(data);
-       // smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
+        smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
+        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-              /* *//* smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
+              *//* *//**//* smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
                 mHistoryList.setAdapter(smsHistoryAdaptor);
-                smsHistoryAdaptor.notifyDataSetChanged();*//**/
+                smsHistoryAdaptor.notifyDataSetChanged();*//**//**//*
                 smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
 
 
             }
-        });
+        });*/
         progressDialog.cancel();
 
     }

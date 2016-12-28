@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ import com.businessreviewshub.data.requestDataDTO.SendSMSRequestDTO;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.google.gson.Gson;
+
+import java.util.Locale;
 
 /**
  * Created by akshay on 12-12-2016.
@@ -56,6 +60,8 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         mCancelBtn = (Button) view.findViewById(R.id.btn_cancel);
         mSendSMSBtn.setOnClickListener(this);
         mCancelBtn.setOnClickListener(this);
+        mEdtPhNo.addTextChangedListener(new PhoneNumberFormattingTextWatcher("US"));
+        //PhoneNumberUtils.formatNumber(mEdtPhNo.getText().toString(), Locale.getDefault().getCountry());
        /* mEdtPhNo.addTextChangedListener(new PhoneNumberFormattingTextWatcher());*/
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
@@ -104,7 +110,8 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
     private void callToWebService() {
         String mCustomerName = mEditCustomerName.getText().toString().trim();
         String mCusterPhoneNumber = mEdtPhNo.getText().toString().trim();
-        SendSMSRequestDTO sendSMSRequestDTO = new SendSMSRequestDTO(mCusterPhoneNumber, mCustomerName);
+        String stripString = PhoneNumberUtils.stripSeparators(mCusterPhoneNumber);
+        SendSMSRequestDTO sendSMSRequestDTO = new SendSMSRequestDTO(stripString, mCustomerName);
         Gson gson = new Gson();
         String serializedJsonString = gson.toJson(sendSMSRequestDTO);
         BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
@@ -121,6 +128,7 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
     private boolean callToValidationForSMS() {
         String mCustomerName = mEditCustomerName.getText().toString().trim();
         String mCusterPhoneNumber = mEdtPhNo.getText().toString().trim();
+        String stripString = PhoneNumberUtils.stripSeparators(mCusterPhoneNumber);
 
         if (TextUtils.isEmpty(mCustomerName)) {
             mEditCustomerName.requestFocus();

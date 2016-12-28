@@ -2,6 +2,7 @@ package com.businessreviewshub.adapter;
 
 import android.content.Context;
 
+import android.telephony.PhoneNumberUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.businessreviewshub.views.RobotoTextView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by shrinivas on 28-12-2016.
@@ -71,9 +73,9 @@ public class SmsHistoryAdaptor extends BaseAdapter {
         String stringMonth = (String) android.text.format.DateFormat.format("MMM", tempDate);
         String day = (String) android.text.format.DateFormat.format("dd", tempDate);
         String timeStr = (String) android.text.format.DateFormat.format("h:mm a", tempDate);
-
+        String formatedPhoneNo = PhoneNumberUtils.formatNumber(customerPhoneNumber, "US");
         viewHolder.mUserName.setText(customerName);
-        viewHolder.mUserPhoneNo.setText(customerPhoneNumber);
+        viewHolder.mUserPhoneNo.setText(formatedPhoneNo);
         viewHolder.mUserOnlyDate.setText("" + day + "\t" + "" + stringMonth);
         viewHolder.mUserOnlyTime.setText(timeStr);
 
