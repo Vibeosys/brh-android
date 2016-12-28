@@ -1,5 +1,7 @@
 package com.businessreviewshub.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -62,16 +64,19 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
 
     @Override
     public void onVolleyErrorReceived(@NonNull VolleyError error, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_err_server_err), error.getMessage());
     }
 
     @Override
     public void onDataErrorReceived(int errorCode, String errorMessage, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_err_server_err), errorMessage);
     }
 
     @Override
     public void onResultReceived(@NonNull String data, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_sms_success), getResources().getString(R.string.str_sms_Message));
     }
 
@@ -82,14 +87,15 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
             case R.id.btn_send_sms:
                 boolean returnVal = callToValidationForSMS();
                 if (returnVal == true) {
+                    progressDialog.show();
                     callToWebService();
                 }
                 break;
             case R.id.btn_cancel:
                 mEdtPhNo.getText().clear();
                 mEditCustomerName.getText().clear();
-                mEditCustomerName.clearFocus();
-                mEdtPhNo.requestFocus();
+                mEdtPhNo.clearFocus();
+                mEditCustomerName.requestFocus();
                 //Toast.makeText(getActivity().getApplicationContext(), "Cancel Btn", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -128,5 +134,19 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         return true;
     }
 
-
+    protected void createAlertDialog(String title, String message) {
+        new AlertDialog.Builder(getContext())
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mEdtPhNo.getText().clear();
+                        mEditCustomerName.getText().clear();
+                        mEdtPhNo.clearFocus();
+                        mEditCustomerName.requestFocus();
+                    }
+                }).create().show();
+    }
 }

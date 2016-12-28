@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.android.volley.VolleyError;
+import com.businessreviewshub.MainActivity;
 import com.businessreviewshub.R;
 import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.EditProfileRequestDTO;
@@ -100,6 +101,10 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
                 /*Toast toast = Toast.makeText(getActivity(), "User information is updated successfully ", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();*/
+                UserAuth userAuth = new UserAuth();
+                userAuth.CleanAuthenticationInfo();
+                Intent intent = new Intent(getContext().getApplicationContext(), MainActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -113,6 +118,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         switch (id) {
             case R.id.updateProfile:
                 boolean returnVal = callToValidation();
+                progressDialog.show();
                 if (returnVal == true) {
                     callToWebService();
                 }
@@ -176,17 +182,20 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
 
     @Override
     public void onVolleyErrorReceived(@NonNull VolleyError error, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_err_server_err), error.getMessage());
     }
 
     @Override
     public void onDataErrorReceived(int errorCode, String errorMessage, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_err_server_err), errorMessage);
 
     }
 
     @Override
     public void onResultReceived(@NonNull String data, int requestToken) {
+        progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_prfile), getResources().getString(R.string.str_prfile_success));
         String mUserName = mUserFirstName.getText().toString().trim();
         String mUserPhone = mUserPhoneNo.getText().toString().trim();

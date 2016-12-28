@@ -55,9 +55,9 @@
                     android:layout_height="120dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:padding="32dp"
                     android:layout_margin="16dp"
                     android:foregroundGravity="center"
+                    android:padding="32dp"
                     android:src="@mipmap/ic_launcher" />
 
                 <!-- <android.support.v7.widget.CardView
@@ -107,7 +107,7 @@
                             android:drawablePadding="8dp"
                             android:drawableStart="@drawable/ic_person_grey_24"
                             android:hint="@string/str_hint_username"
-                            android:inputType="textPersonName"
+                            android:inputType="textEmailAddress"
                             android:paddingBottom="4dp"
                             android:textColor="@color/primaryText2"
                             android:textCursorDrawable="@drawable/bg_input_cursor"
@@ -132,7 +132,7 @@
                             android:drawablePadding="8dp"
                             android:drawableStart="@drawable/ic_lock_grey_24"
                             android:hint="@string/str_hint_password"
-                            android:inputType="textPersonName"
+                            android:inputType="textPassword"
                             android:paddingBottom="4dp"
                             android:textColor="@color/primaryText2"
                             android:textCursorDrawable="@drawable/bg_input_cursor"
@@ -195,15 +195,15 @@
                         android:paddingEnd="30dp"
                         android:paddingStart="30dp">
 
-                       <!-- <TextView
-                            android:id="@+id/txtCopyRightTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/str_login_copyright_title"
-                            android:textColor="@color/primaryText2"
-                            android:textSize="10sp" />-->
+                        <!-- <TextView
+                             android:id="@+id/txtCopyRightTitle"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginBottom="4dp"
+                             android:layout_marginTop="4dp"
+                             android:text="@string/str_login_copyright_title"
+                             android:textColor="@color/primaryText2"
+                             android:textSize="10sp" />-->
 
                         <TextView
                             android:id="@+id/txtCopyRight"

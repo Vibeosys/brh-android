@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -110,15 +111,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         String mUserCompany = mEditCompanyCode.getText().toString().trim();
         if (TextUtils.isEmpty(mUserNameStr)) {
             mUserName.requestFocus();
-            mUserName.setError("Please Enter User Name");
+            mUserName.setError("Please enter user name");
             return false;
-        } else if (TextUtils.isEmpty(mUserPw)) {
+        } else if (!TextUtils.isEmpty(mUserNameStr)) {
+            if (!Patterns.EMAIL_ADDRESS.matcher(mUserName.getText().toString()).matches()) {
+                mUserName.requestFocus();
+                mUserName.setError("Invalid user name");
+                return false;
+            }
+        }
+        if (TextUtils.isEmpty(mUserPw)) {
             mEditPassword.requestFocus();
-            mEditPassword.setError("Please Enter User password Name");
+            mEditPassword.setError("Please enter your password");
             return false;
         } else if (TextUtils.isEmpty(mUserCompany)) {
             mEditCompanyCode.requestFocus();
-            mEditCompanyCode.setError("Please Enter User Name");
+            mEditCompanyCode.setError("Please enter your company code");
             return false;
         }
         return true;
