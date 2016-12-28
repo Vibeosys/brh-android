@@ -62,23 +62,17 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
 
     @Override
     public void onVolleyErrorReceived(@NonNull VolleyError error, int requestToken) {
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
+        createAlertDialog(getResources().getString(R.string.str_err_server_err), error.getMessage());
     }
 
     @Override
     public void onDataErrorReceived(int errorCode, String errorMessage, int requestToken) {
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
+        createAlertDialog(getResources().getString(R.string.str_err_server_err), errorMessage);
     }
 
     @Override
     public void onResultReceived(@NonNull String data, int requestToken) {
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
+        createAlertDialog(getResources().getString(R.string.str_sms_success), getResources().getString(R.string.str_sms_Message));
     }
 
     @Override
@@ -92,7 +86,11 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
                 }
                 break;
             case R.id.btn_cancel:
-                Toast.makeText(getActivity().getApplicationContext(), "Cancel Btn", Toast.LENGTH_SHORT).show();
+                mEdtPhNo.getText().clear();
+                mEditCustomerName.getText().clear();
+                mEditCustomerName.clearFocus();
+                mEdtPhNo.requestFocus();
+                //Toast.makeText(getActivity().getApplicationContext(), "Cancel Btn", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

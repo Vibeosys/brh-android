@@ -36,5 +36,8 @@
     <string name="please_wait">Please wait…</string>
     <string name="dlg_ok">Ok</string>
     <string name="dlg_cancel">Cancel</string>
+    <!-- Send SMS Screen-->
+    <string name="str_sms_success">SMS SEND</string>
+    <string name="str_sms_Message">Thank you for your feedback</string>
 
 </resources>

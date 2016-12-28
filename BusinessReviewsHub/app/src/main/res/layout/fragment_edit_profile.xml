@@ -86,7 +86,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_below="@+id/firstNameTv"
                                 android:padding="4dp"
-                                android:text="First Name"
+                                android:text="Name"
                                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
                             <View

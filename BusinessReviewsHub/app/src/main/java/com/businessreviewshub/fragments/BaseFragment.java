@@ -20,7 +20,7 @@ import com.businessreviewshub.utils.SessionManager;
 /**
  * Created by akshay on 12-12-2016.
  */
-public class BaseFragment extends Fragment{
+public class BaseFragment extends Fragment {
     protected ServerSyncManager mServerSyncManager = null;
     protected static SessionManager mSessionManager = null;
     protected ProgressDialog progressDialog;
@@ -34,6 +34,7 @@ public class BaseFragment extends Fragment{
         progressDialog = DialogUtils.getProgressDialog(getContext());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     protected void showProgress(final boolean show, final View hideFormView, final View showProgressView) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -73,6 +74,20 @@ public class BaseFragment extends Fragment{
 
         }
 
+    }
+
+    protected void customAlterDialog(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext().getApplicationContext());
+        builder.setTitle("" + title);
+        builder.setMessage(message);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 
     protected void createAlertDialog(String title, String message) {
