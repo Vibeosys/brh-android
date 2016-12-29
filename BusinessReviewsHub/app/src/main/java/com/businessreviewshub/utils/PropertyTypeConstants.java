@@ -20,6 +20,9 @@ public class PropertyTypeConstants {
     public static  final String EMPLOYEE_COMPANY_CODE="user.company.code";
     public static  final String EMPLOYEE_NAME="user.name";
     public static  final String EMPLOYEE_PHONE="user.phone";
+    public static final String  EMPLOYEE_COMPANY_LOGO="user.company.logo";
+    public static final String EMPLOYEE_COMPANY_NAME="user.company.name";
+    public static final String EMPLOYEE_PROFILE_PHOTO="user.photo";
 
 
 }

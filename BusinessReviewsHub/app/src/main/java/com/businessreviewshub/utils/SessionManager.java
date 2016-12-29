@@ -55,9 +55,9 @@ public class SessionManager {
 
         SharedPreferences.Editor editor = mProjectSharedPref.edit();
         editor.putString(PropertyTypeConstants.LOGIN_ENDPOINT_URI, mPropertyFileReader.getUserLoginUrl());
-        editor.putString(PropertyTypeConstants.SEND_SMS,mPropertyFileReader.getSendSmsUrl());
-        editor.putString(PropertyTypeConstants.SMS_HISTORY,mPropertyFileReader.getSmsHistoryUrl());
-        editor.putString(PropertyTypeConstants.EDIT_PROFILE,mPropertyFileReader.getEditProfilerUrl());
+        editor.putString(PropertyTypeConstants.SEND_SMS, mPropertyFileReader.getSendSmsUrl());
+        editor.putString(PropertyTypeConstants.SMS_HISTORY, mPropertyFileReader.getSmsHistoryUrl());
+        editor.putString(PropertyTypeConstants.EDIT_PROFILE, mPropertyFileReader.getEditProfilerUrl());
         editor.apply();
         return true;
     }
@@ -73,7 +73,6 @@ public class SessionManager {
         editor.putString(sharedPrefKey, sharedPrefValue);
         editor.apply();
     }
-
 
 
     public String getPassword() {
@@ -104,6 +103,30 @@ public class SessionManager {
         setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_PHONE, empPhone);
     }
 
+    public String getEmployeeCompanyLogoUrl() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.EMPLOYEE_COMPANY_LOGO, null);
+    }
+
+    public void setEmployeeCompanyLogoUrl(String empUrl) {
+        setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_COMPANY_LOGO, empUrl);
+    }
+
+    public String getEmployeeCompanyName() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.EMPLOYEE_COMPANY_NAME, null);
+    }
+
+    public void setEmployeeCompanyName(String empCompanyName) {
+        setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_COMPANY_NAME, empCompanyName);
+    }
+
+    public String getEmployeeProfileUrl() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.EMPLOYEE_PROFILE_PHOTO, null);
+    }
+
+    public void setEmployeeProfileUrl(String empProfileUrl) {
+        setValuesInSharedPrefs(PropertyTypeConstants.EMPLOYEE_PROFILE_PHOTO, empProfileUrl);
+    }
+
     public String getEmployeePassword() {
         return mProjectSharedPref.getString(PropertyTypeConstants.EMPLOYEE_PASSWORD, null);
     }
@@ -123,12 +146,15 @@ public class SessionManager {
     public String getLogInUrl() {
         return mProjectSharedPref.getString(PropertyTypeConstants.LOGIN_ENDPOINT_URI, null);
     }
+
     public String getSmsHistoryUrl() {
         return mProjectSharedPref.getString(PropertyTypeConstants.SMS_HISTORY, null);
     }
+
     public String getSendSMS() {
         return mProjectSharedPref.getString(PropertyTypeConstants.SEND_SMS, null);
     }
+
     public String getEditProfileUrl() {
         return mProjectSharedPref.getString(PropertyTypeConstants.EDIT_PROFILE, null);
     }

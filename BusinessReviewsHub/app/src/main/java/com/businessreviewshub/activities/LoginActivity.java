@@ -29,6 +29,8 @@ import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.LoginRequestDTO;
 import com.businessreviewshub.data.responseDataDTO.LoginResponseDTO;
 import com.businessreviewshub.data.responseDataDTO.UserDTO;
+import com.businessreviewshub.data.responseDataDTO.UserInfoDTO;
+import com.businessreviewshub.utils.Constants;
 import com.businessreviewshub.utils.DialogUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
@@ -65,7 +67,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         ssWebsite.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.vibeosys.com/"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.businessreviewshub.com/"));
                 startActivity(browserIntent);
             }
         }, 43, 69, 0);
@@ -168,9 +170,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 userDTO.setPhoneNo(empPhoneStr);
                 userDTO.setEmpPwd(mEditPassword.getText().toString().trim());
                 userDTO.setCompanyCode(mEditCompanyCode.getText().toString().trim());
+                userDTO.setCompanyLogo(compLogo);
+                userDTO.setCompanyName(compName);
+                userDTO.setProfileImage(profImg);
                 UserAuth userAuth = new UserAuth();
                 userAuth.saveAuthenticationInfo(userDTO, getApplicationContext());
+                UserInfoDTO userInfoDTO = new UserInfoDTO(compLogo,compName,profImg);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                /*intent.putExtra(Constants.LOG_IN_EXTRA_SESSION,userInfoDTO);*/
                 startActivity(intent);
                 finish();
                 break;

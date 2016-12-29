@@ -1,8 +1,18 @@
 package com.businessreviewshub.fragments;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -16,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -31,10 +42,15 @@ import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
 import com.google.gson.Gson;
 
+import java.io.InputStream;
+
 public class EditProfileFragment extends BaseFragment implements ServerSyncManager.OnSuccessResultReceived,
         ServerSyncManager.OnErrorResultReceived, View.OnClickListener {
     private EditText mUserFirstName, mUserPhoneNo, mUserPassword;
     private Button mUpdateSMS;
+    private ImageView mUserPhoto;
+    private int EDIT_PROFILE_MEDIA_PERMISSION_CODE = 39;
+    private int EDIT_SELECT_IMAGE = 30;
 
     public EditProfileFragment() {
         // Required empty public constructor
@@ -56,6 +72,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mUserPhoneNo = (EditText) view.findViewById(R.id.lastNameTv);
         mUserPassword = (EditText) view.findViewById(R.id.passwordTv);
         mUpdateSMS = (Button) view.findViewById(R.id.updateProfile);
+        mUserPhoto = (ImageView) view.findViewById(R.id.circleView);
         mUserFirstName.setText("" + mSessionManager.getEmployeeName());
         mUserPhoneNo.setText("" + mSessionManager.getEmployeePhone());
         mUserPassword.setText("" + mSessionManager.getEmployeePassword());
@@ -63,6 +80,17 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
         mUpdateSMS.setOnClickListener(this);
+        mUserPhoto.setOnClickListener(this);
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+
+                String userProfileImage = mSessionManager.getEmployeeProfileUrl();
+                DownloadImage downloadImage = new DownloadImage();
+                downloadImage.execute(userProfileImage);
+
+            }
+        });
         mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
@@ -98,9 +126,6 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Toast toast = Toast.makeText(getActivity(), "User information is updated successfully ", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();*/
                 UserAuth userAuth = new UserAuth();
                 userAuth.CleanAuthenticationInfo();
                 Intent intent = new Intent(getContext().getApplicationContext(), MainActivity.class);
@@ -123,9 +148,13 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
                     callToWebService();
                 }
                 break;
+            case R.id.circleView:
+                callToRequestPermission();
+                break;
 
         }
     }
+
 
     private void callToWebService() {
         String mUserName = mUserFirstName.getText().toString().trim();
@@ -211,4 +240,88 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         userAuth.saveAuthenticationInfo(userDTO, getContext().getApplicationContext());
 
     }
+
+    private void callToRequestPermission() {
+        requestPermissions(new String[]{Manifest.permission.MEDIA_CONTENT_CONTROL,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                EDIT_PROFILE_MEDIA_PERMISSION_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == EDIT_PROFILE_MEDIA_PERMISSION_CODE && grantResults[1] == 0) {
+            openGallery();
+        }
+    }
+
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, EDIT_SELECT_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            if (requestCode == EDIT_SELECT_IMAGE && resultCode == Activity.RESULT_OK
+                    && null != data) {
+                // Get the Image from data
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                // Get the cursor
+                Cursor cursor = getContext().getContentResolver().query(selectedImage,
+                        filePathColumn, null, null, null);
+                // Move to first row
+                cursor.moveToFirst();
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String imgInString = cursor.getString(columnIndex);
+                cursor.close();
+                // Set the Image in ImageView after decoding the String
+                mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgInString));
+            } else {
+                Toast.makeText(getActivity(), "You haven't picked Image",
+                        Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... URL) {
+
+            String imageURL = URL[0];
+
+            Bitmap bitmap = null;
+            try {
+                InputStream input = new java.net.URL(imageURL).openStream();
+                bitmap = BitmapFactory.decodeStream(input);
+            } catch (Exception e) {
+                e.printStackTrace();
+                bitmap = null;
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                mUserPhoto.setImageBitmap(result);
+            } else {
+                mUserPhoto.setImageResource(R.drawable.dummy_image);
+            }
+        }
+    }
+
 }

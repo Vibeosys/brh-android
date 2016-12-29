@@ -9,6 +9,33 @@ public class UserDTO {
     private String PhoneNo;
     private String EmpPwd;
     private String companyCode;
+    private String companyLogo;
+    private String companyName;
+    private String profileImage;
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
 
     public String getCompanyCode() {
         return companyCode;

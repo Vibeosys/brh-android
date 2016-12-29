@@ -2,7 +2,12 @@ package com.businessreviewshub.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,16 +21,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.businessreviewshub.R;
 import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.SendSMSRequestDTO;
+import com.businessreviewshub.data.responseDataDTO.UserInfoDTO;
+import com.businessreviewshub.utils.Constants;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.google.gson.Gson;
 
+import java.io.InputStream;
 import java.util.Locale;
 
 /**
@@ -36,6 +46,8 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
 
     private EditText mEdtPhNo, mEditCustomerName;
     private Button mSendSMSBtn, mCancelBtn;
+    private TextView mCompanyNameTv;
+    private ImageView mCompanyLogo;
 
     public SendSMSFragment() {
         // Required empty public constructor
@@ -47,6 +59,7 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         super.onCreate(savedInstanceState);
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle("Company Name");
+        Log.d("TAG", "TAG");
     }
 
     @Override
@@ -58,6 +71,9 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         mEditCustomerName = (EditText) view.findViewById(R.id.et_customer_name);
         mSendSMSBtn = (Button) view.findViewById(R.id.btn_send_sms);
         mCancelBtn = (Button) view.findViewById(R.id.btn_cancel);
+        mCompanyNameTv = (TextView) view.findViewById(R.id.sms_txtLogin);
+        mCompanyLogo = (ImageView) view.findViewById(R.id.sms_imgLogo);
+
         mSendSMSBtn.setOnClickListener(this);
         mCancelBtn.setOnClickListener(this);
         mEdtPhNo.addTextChangedListener(new PhoneNumberFormattingTextWatcher("US"));
@@ -65,6 +81,18 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
        /* mEdtPhNo.addTextChangedListener(new PhoneNumberFormattingTextWatcher());*/
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+
+                String companyName = mSessionManager.getEmployeeCompanyName();
+                String companyLogo = mSessionManager.getEmployeeCompanyLogoUrl();
+                mCompanyNameTv.setText("" + companyName);
+                DownloadImage downloadImage = new DownloadImage();
+                downloadImage.execute(companyLogo);
+
+            }
+        });
         return view;
     }
 
@@ -156,5 +184,38 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
                         mEditCustomerName.requestFocus();
                     }
                 }).create().show();
+    }
+
+    private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... URL) {
+
+            String imageURL = URL[0];
+
+            Bitmap bitmap = null;
+            try {
+                InputStream input = new java.net.URL(imageURL).openStream();
+                bitmap = BitmapFactory.decodeStream(input);
+            } catch (Exception e) {
+                e.printStackTrace();
+                bitmap = null;
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                mCompanyLogo.setImageBitmap(result);
+            } else {
+                mCompanyLogo.setImageResource(R.drawable.sample_logo_transperant);
+            }
+        }
     }
 }

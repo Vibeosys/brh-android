@@ -49,6 +49,9 @@ public class UserAuth {
         theSessionManager.setEmployeePhone(userInfo.getPhoneNo());
         theSessionManager.setEmployeePassword(userInfo.getEmpPwd());
         theSessionManager.setEmployeeCoded(userInfo.getCompanyCode());
+        theSessionManager.setEmployeeCompanyName(userInfo.getCompanyName());
+        theSessionManager.setEmployeeCompanyLogoUrl(userInfo.getCompanyLogo());
+        theSessionManager.setEmployeeProfileUrl(userInfo.getProfileImage());
         Log.d("TAG", "TAG");
         Log.d("TAG", "TAG");
         Log.d("TAG", "TAG");
