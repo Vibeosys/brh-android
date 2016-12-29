@@ -81,18 +81,12 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
        /* mEdtPhNo.addTextChangedListener(new PhoneNumberFormattingTextWatcher());*/
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
+        String companyName = mSessionManager.getEmployeeCompanyName();
+        String companyLogo = mSessionManager.getEmployeeCompanyLogoUrl();
+        mCompanyNameTv.setText("" + companyName);
+        DownloadImage downloadImage = new DownloadImage();
+        downloadImage.execute(companyLogo);
 
-                String companyName = mSessionManager.getEmployeeCompanyName();
-                String companyLogo = mSessionManager.getEmployeeCompanyLogoUrl();
-                mCompanyNameTv.setText("" + companyName);
-                DownloadImage downloadImage = new DownloadImage();
-                downloadImage.execute(companyLogo);
-
-            }
-        });
         return view;
     }
 
@@ -213,8 +207,6 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         protected void onPostExecute(Bitmap result) {
             if (result != null) {
                 mCompanyLogo.setImageBitmap(result);
-            } else {
-                mCompanyLogo.setImageResource(R.drawable.sample_logo_transperant);
             }
         }
     }

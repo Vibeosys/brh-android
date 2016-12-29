@@ -42,6 +42,7 @@ import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
 import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 public class EditProfileFragment extends BaseFragment implements ServerSyncManager.OnSuccessResultReceived,
@@ -51,6 +52,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     private ImageView mUserPhoto;
     private int EDIT_PROFILE_MEDIA_PERMISSION_CODE = 39;
     private int EDIT_SELECT_IMAGE = 30;
+    private String imgString;
+
 
     public EditProfileFragment() {
         // Required empty public constructor
@@ -81,17 +84,11 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mServerSyncManager.setOnStringResultReceived(this);
         mUpdateSMS.setOnClickListener(this);
         mUserPhoto.setOnClickListener(this);
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
+        String userProfileImage = mSessionManager.getEmployeeProfileUrl();
+        DownloadImage downloadImage = new DownloadImage();
+        downloadImage.execute(userProfileImage);
 
-                String userProfileImage = mSessionManager.getEmployeeProfileUrl();
-                DownloadImage downloadImage = new DownloadImage();
-                downloadImage.execute(userProfileImage);
-
-            }
-        });
-        mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        /*mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if (b) {
@@ -120,7 +117,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
                 else if (!b)
                     mUserPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
             }
-        });
+        });*/
         FloatingActionButton mFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.fab_profile);
 
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -265,30 +262,21 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        try {
-            if (requestCode == EDIT_SELECT_IMAGE && resultCode == Activity.RESULT_OK
-                    && null != data) {
-                // Get the Image from data
-                Uri selectedImage = data.getData();
-                String[] filePathColumn = {MediaStore.Images.Media.DATA};
-                // Get the cursor
-                Cursor cursor = getContext().getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
-                // Move to first row
-                cursor.moveToFirst();
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String imgInString = cursor.getString(columnIndex);
-                cursor.close();
-                // Set the Image in ImageView after decoding the String
-                mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgInString));
-            } else {
-                Toast.makeText(getActivity(), "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
-                    .show();
+        if (requestCode == EDIT_SELECT_IMAGE && resultCode == Activity.RESULT_OK
+                && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+            // Get the cursor
+            Cursor cursor = getContext().getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            // Move to first row
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            imgString = cursor.getString(columnIndex);
+            cursor.close();
+            mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgString));
         }
+
     }
 
     private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
@@ -318,8 +306,6 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         protected void onPostExecute(Bitmap result) {
             if (result != null) {
                 mUserPhoto.setImageBitmap(result);
-            } else {
-                mUserPhoto.setImageResource(R.drawable.dummy_image);
             }
         }
     }
