@@ -2,6 +2,7 @@ package com.businessreviewshub.fragments;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -37,7 +38,9 @@ import com.businessreviewshub.R;
 import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.EditProfileRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.SendSMSRequestDTO;
+import com.businessreviewshub.data.responseDataDTO.UpdateUserResponseDTO;
 import com.businessreviewshub.data.responseDataDTO.UserDTO;
+import com.businessreviewshub.utils.DialogUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
@@ -56,6 +59,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     private int EDIT_SELECT_IMAGE = 30;
     private String imgString;
     Bitmap bitmap = null;
+    private boolean flag = true;
+    // String imgString;
 
 
     public EditProfileFragment() {
@@ -67,6 +72,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         super.onCreate(savedInstanceState);
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle("Profile");
+
     }
 
     @Override
@@ -82,6 +88,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mUserFirstName.setText("" + mSessionManager.getEmployeeName());
         mUserPhoneNo.setText("" + mSessionManager.getEmployeePhone());
         mUserPassword.setText("" + mSessionManager.getEmployeePassword());
+        progressDialog = DialogUtils.getProgressDialog(getActivity());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
@@ -143,8 +151,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         switch (id) {
             case R.id.updateProfile:
                 boolean returnVal = callToValidation();
-                progressDialog.show();
                 if (returnVal == true) {
+                    progressDialog.show();
                     callToWebService();
                 }
                 break;
@@ -160,13 +168,16 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         String mUserName = mUserFirstName.getText().toString().trim();
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
-        bitmap=BitmapFactory.decodeFile(imgString);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte [] byteArray = stream.toByteArray();
-        String imgString = Base64.encodeToString(byteArray,Base64.DEFAULT);
+        if (flag == false) {
+            bitmap = BitmapFactory.decodeFile(imgString);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 60, stream);
+            byte[] byteArray = stream.toByteArray();
+            imgString = Base64.encodeToString(byteArray, Base64.DEFAULT);
+        }
 
-        EditProfileRequestDTO editProfileRequestDTO = new EditProfileRequestDTO(mUserName, mUserPhone, mUserPwd);
+
+        EditProfileRequestDTO editProfileRequestDTO = new EditProfileRequestDTO(mUserName, mUserPhone, mUserPwd, imgString);
         Gson gson = new Gson();
         String serializedJsonString = gson.toJson(editProfileRequestDTO);
         BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
@@ -232,10 +243,11 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     public void onResultReceived(@NonNull String data, int requestToken) {
         progressDialog.cancel();
         createAlertDialog(getResources().getString(R.string.str_prfile), getResources().getString(R.string.str_prfile_success));
+        UpdateUserResponseDTO updateUserResponseDTO = UpdateUserResponseDTO.deserializeJson(data);
+        String responseImgUrl = updateUserResponseDTO.getProfileImageUrl();
         String mUserName = mUserFirstName.getText().toString().trim();
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
-
         UserDTO userDTO = new UserDTO();
         userDTO.setEmpCode(mSessionManager.getCompanyCode());
         userDTO.setEmpName(mUserName);
@@ -243,7 +255,12 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         userDTO.setEmpPwd(mUserPassword.getText().toString().trim());
         userDTO.setCompanyCode(mSessionManager.getEmployeeCode());
         userDTO.setCompanyName(mSessionManager.getEmployeeCompanyName());
-        userDTO.setProfileImage(mSessionManager.getEmployeeProfileUrl());
+        if (responseImgUrl.equals("false")) {
+            userDTO.setProfileImage(mSessionManager.getEmployeeProfileUrl());
+        } else {
+            userDTO.setProfileImage(updateUserResponseDTO.getProfileImageUrl());
+        }
+
         String test = mSessionManager.getEmployeeProfileUrl();
         userDTO.setCompanyLogo(mSessionManager.getEmployeeCompanyLogoUrl());
         UserAuth userAuth = new UserAuth();
@@ -289,6 +306,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             cursor.close();
             mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgString));
             mUserPhoto.requestFocus();
+            flag = false;
         }
 
     }
@@ -298,6 +316,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            progressDialog.show();
         }
 
         @Override
@@ -312,6 +331,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             } catch (Exception e) {
                 e.printStackTrace();
                 bitmap = null;
+                progressDialog.cancel();
             }
             return bitmap;
         }
@@ -320,6 +340,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         protected void onPostExecute(Bitmap result) {
             if (result != null) {
                 mUserPhoto.setImageBitmap(result);
+                progressDialog.cancel();
             }
         }
     }

@@ -7,11 +7,13 @@ public class EditProfileRequestDTO {
     private String name;
     private String phone;
     private String password;
+    private String profileImage;
 
-    public EditProfileRequestDTO(String name, String phone, String password) {
+    public EditProfileRequestDTO(String name, String phone, String password, String profileImage) {
         this.name = name;
         this.phone = phone;
         this.password = password;
+        this.profileImage = profileImage;
     }
 
     public String getName() {
@@ -37,4 +39,13 @@ public class EditProfileRequestDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.businessreviewshub.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.businessreviewshub.R;
 import com.businessreviewshub.adapter.SmsHistoryAdaptor;
 import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.responseDataDTO.SmsHistoryResponseDTO;
+import com.businessreviewshub.utils.DialogUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 
@@ -43,6 +45,8 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle("History");
         smsHistoryResponseDTOs = new ArrayList<>();
+        progressDialog = DialogUtils.getProgressDialog(getActivity());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         callToWebServiceForHistory();
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
@@ -63,9 +67,10 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history_details, container, false);
         mHistoryList = (ListView) view.findViewById(R.id.historyList);
+
         smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
         mHistoryList.setAdapter(smsHistoryAdaptor);
-       // smsHistoryAdaptor.notifyDataSetChanged();
+        // smsHistoryAdaptor.notifyDataSetChanged();
 
         return view;
     }
@@ -88,6 +93,7 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
     @Override
     public void onResultReceived(@NonNull String data, int requestToken) {
 
+        progressDialog.cancel();
         smsHistoryResponseDTOs = SmsHistoryResponseDTO.deserializeToArray(data);
         smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
         /*new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -101,7 +107,7 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
 
             }
         });*/
-        progressDialog.cancel();
+
 
     }
 }

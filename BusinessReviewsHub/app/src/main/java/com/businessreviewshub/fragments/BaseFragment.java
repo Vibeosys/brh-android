@@ -31,7 +31,8 @@ public class BaseFragment extends Fragment {
         mSessionManager = SessionManager.getInstance(getActivity().getApplicationContext());
 
         mServerSyncManager = new ServerSyncManager(getActivity().getApplicationContext(), mSessionManager);
-        progressDialog = DialogUtils.getProgressDialog(getContext());
+
+        progressDialog = DialogUtils.getProgressDialog(getActivity());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
 
