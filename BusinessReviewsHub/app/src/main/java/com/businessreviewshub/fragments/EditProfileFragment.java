@@ -18,6 +18,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
 import com.google.gson.Gson;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -53,6 +55,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     private int EDIT_PROFILE_MEDIA_PERMISSION_CODE = 39;
     private int EDIT_SELECT_IMAGE = 30;
     private String imgString;
+    Bitmap bitmap = null;
 
 
     public EditProfileFragment() {
@@ -88,7 +91,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         DownloadImage downloadImage = new DownloadImage();
         downloadImage.execute(userProfileImage);
 
-        /*mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if (b) {
@@ -117,7 +120,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
                 else if (!b)
                     mUserPassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_create_black_24dp, 0);
             }
-        });*/
+        });
         FloatingActionButton mFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.fab_profile);
 
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +160,12 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         String mUserName = mUserFirstName.getText().toString().trim();
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
+        bitmap=BitmapFactory.decodeFile(imgString);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte [] byteArray = stream.toByteArray();
+        String imgString = Base64.encodeToString(byteArray,Base64.DEFAULT);
+
         EditProfileRequestDTO editProfileRequestDTO = new EditProfileRequestDTO(mUserName, mUserPhone, mUserPwd);
         Gson gson = new Gson();
         String serializedJsonString = gson.toJson(editProfileRequestDTO);
@@ -233,6 +242,10 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         userDTO.setPhoneNo(mUserPhone);
         userDTO.setEmpPwd(mUserPassword.getText().toString().trim());
         userDTO.setCompanyCode(mSessionManager.getEmployeeCode());
+        userDTO.setCompanyName(mSessionManager.getEmployeeCompanyName());
+        userDTO.setProfileImage(mSessionManager.getEmployeeProfileUrl());
+        String test = mSessionManager.getEmployeeProfileUrl();
+        userDTO.setCompanyLogo(mSessionManager.getEmployeeCompanyLogoUrl());
         UserAuth userAuth = new UserAuth();
         userAuth.saveAuthenticationInfo(userDTO, getContext().getApplicationContext());
 
@@ -275,6 +288,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             imgString = cursor.getString(columnIndex);
             cursor.close();
             mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgString));
+            mUserPhoto.requestFocus();
         }
 
     }
@@ -291,7 +305,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
 
             String imageURL = URL[0];
 
-            Bitmap bitmap = null;
+
             try {
                 InputStream input = new java.net.URL(imageURL).openStream();
                 bitmap = BitmapFactory.decodeStream(input);

@@ -83,7 +83,8 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         mServerSyncManager.setOnStringResultReceived(this);
         String companyName = mSessionManager.getEmployeeCompanyName();
         String companyLogo = mSessionManager.getEmployeeCompanyLogoUrl();
-        mCompanyNameTv.setText("" + companyName);
+        if (companyName != null)
+            mCompanyNameTv.setText("" + companyName);
         DownloadImage downloadImage = new DownloadImage();
         downloadImage.execute(companyLogo);
 
@@ -141,9 +142,6 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
         mServerSyncManager.uploadDataToServer(ServerRequestConstants.REQUEST_SEND_SMS,
                 mSessionManager.getSendSMS(), baseRequestDTO);
 
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
-        Log.d("TAG", "TAG");
 
     }
 

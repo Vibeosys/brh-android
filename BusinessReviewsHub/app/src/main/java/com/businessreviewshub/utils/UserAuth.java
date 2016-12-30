@@ -66,6 +66,9 @@ public class UserAuth {
         theSessionManager.setEmployeePhone(null);
         theSessionManager.setEmployeePassword(null);
         theSessionManager.setEmployeeCoded(null);
+        theSessionManager.setEmployeeCompanyName(null);
+        theSessionManager.setEmployeeCompanyLogoUrl(null);
+        theSessionManager.setEmployeeProfileUrl(null);
         return true;
     }
 }

@@ -30,7 +30,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="190dp"
                         android:layout_weight="0"
-                        android:background="@drawable/ic_demo_profile_bck"
+                        android:background="@drawable/ic_new_profile_back"
                         android:orientation="horizontal">
 
                         <LinearLayout
