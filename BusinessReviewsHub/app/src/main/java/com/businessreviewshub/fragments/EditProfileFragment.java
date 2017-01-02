@@ -286,10 +286,10 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         userDTO.setEmpPwd(mUserPassword.getText().toString().trim());
         userDTO.setCompanyCode(mSessionManager.getEmployeeCode());
         userDTO.setCompanyName(mSessionManager.getEmployeeCompanyName());
-        if (responseImgUrl.equals("false")) {
-            userDTO.setProfileImage(mSessionManager.getEmployeeProfileUrl());
-        } else {
+        if (flag == false) {
             userDTO.setProfileImage(updateUserResponseDTO.getProfileImageUrl());
+        } else if (flag == true) {
+            userDTO.setProfileImage(mSessionManager.getEmployeeProfileUrl());
         }
 
         String test = mSessionManager.getEmployeeProfileUrl();

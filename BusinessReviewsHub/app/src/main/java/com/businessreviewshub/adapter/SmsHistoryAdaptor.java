@@ -78,8 +78,7 @@ public class SmsHistoryAdaptor extends BaseAdapter {
         String stringMonth = (String) android.text.format.DateFormat.format("MMM", tempDate);
         String day = (String) android.text.format.DateFormat.format("dd", tempDate);
         String timeStr = (String) android.text.format.DateFormat.format("hh:mm a", tempDate);
-        DateFormat test = android.text.format.DateFormat.getTimeFormat(context);
-        Locale[] chceck = DateFormat.getAvailableLocales();
+
         String formatedPhoneNo = PhoneNumberUtils.formatNumber(customerPhoneNumber, "US");
         viewHolder.mUserName.setText(customerName);
         viewHolder.mUserPhoneNo.setText(formatedPhoneNo);
