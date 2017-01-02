@@ -5,17 +5,21 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -45,13 +49,19 @@ import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
 import com.google.gson.Gson;
+import com.yalantis.ucrop.UCrop;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.channels.FileChannel;
+import java.util.Calendar;
 
 public class EditProfileFragment extends BaseFragment implements ServerSyncManager.OnSuccessResultReceived,
-        ServerSyncManager.OnErrorResultReceived, View.OnClickListener {
+        ServerSyncManager.OnErrorResultReceived, View.OnClickListener, MainActivity.DataReceived {
     private EditText mUserFirstName, mUserPhoneNo, mUserPassword;
     private Button mUpdateSMS;
     private ImageView mUserPhoto;
@@ -61,7 +71,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     Bitmap bitmap = null;
     private boolean flag = true;
     // String imgString;
-
+    private static final int REQUEST_SELECT_PICTURE = 0x01;
+    private static final String SAMPLE_CROPPED_IMAGE_NAME = "SampleCropImage";
 
     public EditProfileFragment() {
         // Required empty public constructor
@@ -90,7 +101,8 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mUserPassword.setText("" + mSessionManager.getEmployeePassword());
         progressDialog = DialogUtils.getProgressDialog(getActivity());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.setDataReceived(this);
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
         mUpdateSMS.setOnClickListener(this);
@@ -157,25 +169,44 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
                 }
                 break;
             case R.id.circleView:
-                callToRequestPermission();
+                //callToRequestPermission();
+                openGallery1();
                 break;
 
         }
     }
 
+    public void openGallery1() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
+                && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+                    getString(R.string.permission_read_storage_rationale),
+                    REQUEST_STORAGE_READ_ACCESS_PERMISSION);
+        } else {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            startActivityForResult(Intent.createChooser(intent, getString(R.string.str_select_picture)), REQUEST_SELECT_PICTURE);
+        }
+    }
 
     private void callToWebService() {
         String mUserName = mUserFirstName.getText().toString().trim();
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
         if (flag == false) {
-            bitmap = BitmapFactory.decodeFile(imgString);
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 60, stream);
-            byte[] byteArray = stream.toByteArray();
-            imgString = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            try {
+                bitmap = BitmapFactory.decodeFile(imgString);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 60, stream);
+                byte[] byteArray = stream.toByteArray();
+                imgString = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            } catch (Exception e) {
+                Log.e("profile", "" + e.toString());
+            }
         }
-
 
         EditProfileRequestDTO editProfileRequestDTO = new EditProfileRequestDTO(mUserName, mUserPhone, mUserPwd, imgString);
         Gson gson = new Gson();
@@ -292,7 +323,7 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == EDIT_SELECT_IMAGE && resultCode == Activity.RESULT_OK
+        /*if (requestCode == EDIT_SELECT_IMAGE && resultCode == Activity.RESULT_OK
                 && null != data) {
             Uri selectedImage = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
@@ -307,8 +338,34 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             mUserPhoto.setImageBitmap(BitmapFactory.decodeFile(imgString));
             mUserPhoto.requestFocus();
             flag = false;
+        }*/
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_SELECT_PICTURE) {
+                final Uri selectedUri = data.getData();
+                if (selectedUri != null) {
+                    startCropActivity(data.getData());
+                } else {
+                    Toast.makeText(getContext(), R.string.str_cannot_retrieve_selected_image, Toast.LENGTH_SHORT).show();
+                }
+            } else if (requestCode == UCrop.REQUEST_CROP) {
+                handleCropResult(data);
+            }
+        }
+        if (resultCode == UCrop.RESULT_ERROR) {
+            handleCropError(data);
         }
 
+    }
+
+    @Override
+    public void onDataReceived(Intent data) {
+        handleCropResult(data);
+    }
+
+    @Override
+    public void onErrorReceived(Intent data) {
+        handleCropError(data);
     }
 
     private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
@@ -345,4 +402,82 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         }
     }
 
+
+    public void startCropActivity(@NonNull Uri uri) {
+        String destinationFileName = SAMPLE_CROPPED_IMAGE_NAME;
+
+        destinationFileName += ".png";
+
+        UCrop uCrop = UCrop.of(uri, Uri.fromFile(new File(getActivity().getCacheDir(), destinationFileName)));
+
+       /* uCrop = basisConfig(uCrop);
+        uCrop = advancedConfig(uCrop);*/
+
+        uCrop.start(getActivity());
+    }
+
+
+    @SuppressWarnings("ThrowableResultOfMethodCallIgnored")
+    private void handleCropError(@NonNull Intent result) {
+        final Throwable cropError = UCrop.getError(result);
+        if (cropError != null) {
+            Log.e("Test", "handleCropError: ", cropError);
+            Toast.makeText(getContext(), cropError.getMessage(), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), R.string.str_unexpected_error, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void handleCropResult(@NonNull Intent result) {
+        final Uri resultUri = UCrop.getOutput(result);
+        if (resultUri != null) {
+            // ResultActivity.startWithUri(SampleActivity.this, resultUri);
+            saveCropImage(resultUri);
+        } else {
+            Toast.makeText(getContext(), R.string.str_cannot_retrieve_cropped_image, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void saveCropImage(Uri resultUri) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(new File(resultUri.getPath()).getAbsolutePath(), options);
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    getString(R.string.permission_write_storage_rationale),
+                    REQUEST_STORAGE_WRITE_ACCESS_PERMISSION);
+        } else {
+            Uri imageUri = resultUri;
+            if (imageUri != null && imageUri.getScheme().equals("file")) {
+                try {
+                    copyFileToDownloads(resultUri);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("Test", imageUri.toString(), e);
+                }
+            } else {
+                Toast.makeText(getContext(), getString(R.string.str_unexpected_error), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void copyFileToDownloads(Uri croppedFileUri) throws Exception {
+        String downloadsDirectoryPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+        String filename = String.format("%d_%s", Calendar.getInstance().getTimeInMillis(), croppedFileUri.getLastPathSegment());
+
+        File saveFile = new File(downloadsDirectoryPath, filename);
+
+        FileInputStream inStream = new FileInputStream(new File(croppedFileUri.getPath()));
+        FileOutputStream outStream = new FileOutputStream(saveFile);
+        FileChannel inChannel = inStream.getChannel();
+        FileChannel outChannel = outStream.getChannel();
+        inChannel.transferTo(0, inChannel.size(), outChannel);
+        inStream.close();
+        outStream.close();
+        imgString = saveFile.getAbsolutePath();
+        mUserPhoto.setImageURI(Uri.fromFile(saveFile));
+        flag = false;
+        // showNotification(saveFile);
+    }
 }

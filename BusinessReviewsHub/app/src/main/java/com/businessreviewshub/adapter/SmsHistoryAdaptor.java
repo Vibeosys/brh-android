@@ -2,7 +2,9 @@ package com.businessreviewshub.adapter;
 
 import android.content.Context;
 
+import android.location.Location;
 import android.telephony.PhoneNumberUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,10 @@ import com.businessreviewshub.data.responseDataDTO.SmsHistoryResponseDTO;
 import com.businessreviewshub.utils.DateUtils;
 import com.businessreviewshub.views.RobotoTextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -72,7 +77,9 @@ public class SmsHistoryAdaptor extends BaseAdapter {
         Date tempDate = dateUtils.getFormattedDate(customerDate);
         String stringMonth = (String) android.text.format.DateFormat.format("MMM", tempDate);
         String day = (String) android.text.format.DateFormat.format("dd", tempDate);
-        String timeStr = (String) android.text.format.DateFormat.format("h:mm a", tempDate);
+        String timeStr = (String) android.text.format.DateFormat.format("hh:mm a", tempDate);
+        DateFormat test = android.text.format.DateFormat.getTimeFormat(context);
+        Locale[] chceck = DateFormat.getAvailableLocales();
         String formatedPhoneNo = PhoneNumberUtils.formatNumber(customerPhoneNumber, "US");
         viewHolder.mUserName.setText(customerName);
         viewHolder.mUserPhoneNo.setText(formatedPhoneNo);

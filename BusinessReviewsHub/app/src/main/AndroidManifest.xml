@@ -31,6 +31,10 @@
             android:name=".activities.LoginActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".activities.SearchCompanyActivity"></activity>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

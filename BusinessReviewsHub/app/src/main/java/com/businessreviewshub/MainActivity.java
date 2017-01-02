@@ -1,6 +1,8 @@
 package com.businessreviewshub;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.businessreviewshub.activities.BaseActivity;
 import com.businessreviewshub.activities.LoginActivity;
@@ -17,6 +20,7 @@ import com.businessreviewshub.fragments.HistoryDetailsFragment;
 import com.businessreviewshub.fragments.SendSMSFragment;
 import com.businessreviewshub.utils.Constants;
 import com.businessreviewshub.utils.UserAuth;
+import com.yalantis.ucrop.UCrop;
 
 import org.w3c.dom.Text;
 
@@ -28,6 +32,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String PROFILE_FRAGMENT = "profile";
     private TextView mSendSmsTv, mHistoryTv, mProfileTv;
     private ImageView mSendSmsImg, mHistoryImg, mProfileImg;
+    private DataReceived dataReceived;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,5 +124,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 mProfileImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_user_white_24));
                 break;
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == UCrop.REQUEST_CROP) {
+                dataReceived.onDataReceived(data);
+
+            }
+        }
+        if (resultCode == UCrop.RESULT_ERROR) {
+            dataReceived.onErrorReceived(data);
+        }
+
+    }
+
+    public interface DataReceived {
+        public void onDataReceived(Intent data);
+
+        public void onErrorReceived(Intent data);
+    }
+
+    public void setDataReceived(DataReceived listener) {
+        dataReceived = listener;
     }
 }

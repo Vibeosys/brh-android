@@ -96,18 +96,5 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         progressDialog.cancel();
         smsHistoryResponseDTOs = SmsHistoryResponseDTO.deserializeToArray(data);
         smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
-        /*new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-              *//* *//**//* smsHistoryAdaptor = new SmsHistoryAdaptor(smsHistoryResponseDTOs, getActivity().getApplicationContext());
-                mHistoryList.setAdapter(smsHistoryAdaptor);
-                smsHistoryAdaptor.notifyDataSetChanged();*//**//**//*
-                smsHistoryAdaptor.addItems(smsHistoryResponseDTOs);
-
-
-            }
-        });*/
-
-
     }
 }

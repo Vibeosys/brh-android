@@ -43,5 +43,17 @@
     <!-- Profile  Update-->
     <string name="str_prfile_success">Profile updated Successfully</string>
     <string name="str_prfile">User Profile</string>
+    <string name="str_select_picture">Select Picture</string>
+    <string name="str_unexpected_error">Unexpected error</string>
+    <string name="str_cannot_retrieve_cropped_image">Cannot retrieve cropped image</string>
+    <string name="str_ok">Ok</string>
+    <string name="str_cancel">Ok</string>
+    <string name="permission_title_rationale">Permission needed</string>
+    <string name="permission_read_storage_rationale">Storage read permission is needed to pick files.</string>
+
+    <string name="str_cannot_retrieve_selected_image">Cannot retrieve selected image</string>
+
+    <string name="permission_write_storage_rationale">Storage write permission is needed to save the image.</string>
+
 
 </resources>
