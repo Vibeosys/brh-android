@@ -45,6 +45,7 @@ import com.businessreviewshub.data.requestDataDTO.SendSMSRequestDTO;
 import com.businessreviewshub.data.responseDataDTO.UpdateUserResponseDTO;
 import com.businessreviewshub.data.responseDataDTO.UserDTO;
 import com.businessreviewshub.utils.DialogUtils;
+import com.businessreviewshub.utils.NetworkUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
@@ -108,8 +109,13 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         mUpdateSMS.setOnClickListener(this);
         mUserPhoto.setOnClickListener(this);
         String userProfileImage = mSessionManager.getEmployeeProfileUrl();
-        DownloadImage downloadImage = new DownloadImage();
-        downloadImage.execute(userProfileImage);
+        if (NetworkUtils.isActiveNetworkAvailable(getContext())) {
+            DownloadImage downloadImage = new DownloadImage();
+            downloadImage.execute(userProfileImage);
+        } else if (!NetworkUtils.isActiveNetworkAvailable(getContext())) {
+            createAlertDialog(getResources().getString(R.string.app_name), getResources().getString(R.string.str_no_internet));
+        }
+
 
         mUserFirstName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -164,8 +170,13 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             case R.id.updateProfile:
                 boolean returnVal = callToValidation();
                 if (returnVal == true) {
-                    progressDialog.show();
-                    callToWebService();
+                    if (NetworkUtils.isActiveNetworkAvailable(getContext())) {
+                        progressDialog.show();
+                        callToWebService();
+                    } else if (!NetworkUtils.isActiveNetworkAvailable(getContext())) {
+                        createAlertDialog(getResources().getString(R.string.app_name), getResources().getString(R.string.str_no_internet));
+                    }
+
                 }
                 break;
             case R.id.circleView:
@@ -226,15 +237,15 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
         if (TextUtils.isEmpty(mUserName)) {
-            mUserFirstName.setError("Please enter your name");
+            mUserFirstName.setError(getResources().getString(R.string.str_pro_user));
             return false;
         }
         if (TextUtils.isEmpty(mUserPhone)) {
-            mUserPhoneNo.setError("Please enter your phone number");
+            mUserPhoneNo.setError(getResources().getString(R.string.str_pro_ph));
             return false;
         }
         if (TextUtils.isEmpty(mUserPwd)) {
-            mUserPassword.setError("Please enter your password");
+            mUserPassword.setError(getResources().getString(R.string.str_pro_pwd));
             return false;
         }
         return true;

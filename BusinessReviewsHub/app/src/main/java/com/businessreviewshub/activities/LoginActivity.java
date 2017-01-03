@@ -32,6 +32,7 @@ import com.businessreviewshub.data.responseDataDTO.UserDTO;
 import com.businessreviewshub.data.responseDataDTO.UserInfoDTO;
 import com.businessreviewshub.utils.Constants;
 import com.businessreviewshub.utils.DialogUtils;
+import com.businessreviewshub.utils.NetworkUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.businessreviewshub.utils.UserAuth;
@@ -85,8 +86,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             case R.id.btn_login:
                 boolean returnVal = callToValidation();
                 if (returnVal == true) {
-                    progressDialog.show();
-                    callToLoginWebService();
+                    if (NetworkUtils.isActiveNetworkAvailable(getApplicationContext())) {
+                        progressDialog.show();
+                        callToLoginWebService();
+                    } else if (!NetworkUtils.isActiveNetworkAvailable(getApplicationContext())) {
+                        createAlertDialog(getResources().getString(R.string.app_name), getResources().getString(R.string.str_no_internet));
+                    }
+
                 }
                 break;
 
@@ -100,22 +106,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         String mUserCompany = mEditCompanyCode.getText().toString().trim();
         if (TextUtils.isEmpty(mUserNameStr)) {
             mUserName.requestFocus();
-            mUserName.setError("Please enter user name");
+            mUserName.setError(getResources().getString(R.string.str_user_name));
             return false;
         } else if (!TextUtils.isEmpty(mUserNameStr)) {
             if (!Patterns.EMAIL_ADDRESS.matcher(mUserName.getText().toString()).matches()) {
                 mUserName.requestFocus();
-                mUserName.setError("Invalid user name");
+                mUserName.setError(getResources().getString(R.string.str_user_invalid));
                 return false;
             }
         }
         if (TextUtils.isEmpty(mUserPw)) {
             mEditPassword.requestFocus();
-            mEditPassword.setError("Please enter your password");
+            mEditPassword.setError(getResources().getString(R.string.str_user_pwd));
             return false;
         } else if (TextUtils.isEmpty(mUserCompany)) {
             mEditCompanyCode.requestFocus();
-            mEditCompanyCode.setError("Please enter your company code");
+            mEditCompanyCode.setError(getResources().getString(R.string.str_company_code));
             return false;
         }
         return true;
@@ -175,7 +181,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 userDTO.setProfileImage(profImg);
                 UserAuth userAuth = new UserAuth();
                 userAuth.saveAuthenticationInfo(userDTO, getApplicationContext());
-                UserInfoDTO userInfoDTO = new UserInfoDTO(compLogo,compName,profImg);
+                UserInfoDTO userInfoDTO = new UserInfoDTO(compLogo, compName, profImg);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 /*intent.putExtra(Constants.LOG_IN_EXTRA_SESSION,userInfoDTO);*/
                 startActivity(intent);

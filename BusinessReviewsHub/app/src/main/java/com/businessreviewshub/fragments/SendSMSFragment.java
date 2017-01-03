@@ -31,6 +31,7 @@ import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.requestDataDTO.SendSMSRequestDTO;
 import com.businessreviewshub.data.responseDataDTO.UserInfoDTO;
 import com.businessreviewshub.utils.Constants;
+import com.businessreviewshub.utils.NetworkUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 import com.google.gson.Gson;
@@ -116,8 +117,15 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
             case R.id.btn_send_sms:
                 boolean returnVal = callToValidationForSMS();
                 if (returnVal == true) {
-                    progressDialog.show();
-                    callToWebService();
+                    if(NetworkUtils.isActiveNetworkAvailable(getContext()))
+                    {progressDialog.show();
+                        callToWebService();
+
+                    }else if(!NetworkUtils.isActiveNetworkAvailable(getContext()))
+                    {
+                        createAlertDialog(getResources().getString(R.string.app_name), getResources().getString(R.string.str_no_internet));
+                    }
+
                 }
                 break;
             case R.id.btn_cancel:
@@ -152,11 +160,11 @@ public class SendSMSFragment extends BaseFragment implements ServerSyncManager.O
 
         if (TextUtils.isEmpty(mCustomerName)) {
             mEditCustomerName.requestFocus();
-            mEditCustomerName.setError("Please Enter Customer Name");
+            mEditCustomerName.setError(getResources().getString(R.string.str_sms_cust));
             return false;
         } else if (TextUtils.isEmpty(mCusterPhoneNumber)) {
             mEdtPhNo.requestFocus();
-            mEdtPhNo.setError("Please Enter Customer Name");
+            mEdtPhNo.setError(getResources().getString(R.string.str_sms_cust_ph));
             return false;
         }
         return true;

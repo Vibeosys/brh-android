@@ -123,6 +123,17 @@ public class BaseActivity extends AppCompatActivity {
         }
         return false;
     }
-
+    protected void createAlertDialog(String title, String message) {
+        new AlertDialog.Builder(getApplicationContext())
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // whatever...
+                    }
+                }).create().show();
+    }
 
 }

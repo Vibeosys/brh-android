@@ -22,6 +22,7 @@ import com.businessreviewshub.adapter.SmsHistoryAdaptor;
 import com.businessreviewshub.data.requestDataDTO.BaseRequestDTO;
 import com.businessreviewshub.data.responseDataDTO.SmsHistoryResponseDTO;
 import com.businessreviewshub.utils.DialogUtils;
+import com.businessreviewshub.utils.NetworkUtils;
 import com.businessreviewshub.utils.ServerRequestConstants;
 import com.businessreviewshub.utils.ServerSyncManager;
 
@@ -47,7 +48,12 @@ public class HistoryDetailsFragment extends BaseFragment implements ServerSyncMa
         smsHistoryResponseDTOs = new ArrayList<>();
         progressDialog = DialogUtils.getProgressDialog(getActivity());
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        callToWebServiceForHistory();
+        if (NetworkUtils.isActiveNetworkAvailable(getContext())) {
+            callToWebServiceForHistory();
+        } else if (!NetworkUtils.isActiveNetworkAvailable(getContext())) {
+            createAlertDialog(getResources().getString(R.string.app_name), getResources().getString(R.string.str_no_internet));
+        }
+
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
 
