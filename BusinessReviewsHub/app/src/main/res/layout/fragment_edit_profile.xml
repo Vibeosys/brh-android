@@ -43,7 +43,7 @@
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/circleView"
                                 android:layout_width="140dp"
-                                android:layout_height="140dp" />
+                                android:layout_height="140dp"/>
                         </LinearLayout>
 
 

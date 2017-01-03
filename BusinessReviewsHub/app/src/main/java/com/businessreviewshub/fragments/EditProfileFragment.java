@@ -237,14 +237,17 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
         String mUserPhone = mUserPhoneNo.getText().toString().trim();
         String mUserPwd = mUserPassword.getText().toString().trim();
         if (TextUtils.isEmpty(mUserName)) {
+            mUserFirstName.requestFocus();
             mUserFirstName.setError(getResources().getString(R.string.str_pro_user));
             return false;
         }
         if (TextUtils.isEmpty(mUserPhone)) {
+            mUserPhoneNo.requestFocus();
             mUserPhoneNo.setError(getResources().getString(R.string.str_pro_ph));
             return false;
         }
         if (TextUtils.isEmpty(mUserPwd)) {
+            mUserPassword.requestFocus();
             mUserPassword.setError(getResources().getString(R.string.str_pro_pwd));
             return false;
         }
@@ -409,6 +412,9 @@ public class EditProfileFragment extends BaseFragment implements ServerSyncManag
             if (result != null) {
                 mUserPhoto.setImageBitmap(result);
                 progressDialog.cancel();
+            } else {
+                mUserPhoto.setImageResource(R.drawable.test123);
+
             }
         }
     }
