@@ -17,7 +17,7 @@
     <!-- Login Activity-->
     <string name="str_login_activity">Login</string>
     <string name="str_btn_login">LOGIN</string>
-    <string name="str_hint_username">User Name</string>
+    <string name="str_hint_username">Email id</string>
     <string name="str_btn_sign_in">Sign In</string>
     <string name="str_hint_select_company">Company Code</string>
     <string name="str_btn_send_sms">Send Sms</string>
@@ -56,8 +56,8 @@
     <string name="permission_write_storage_rationale">Storage write permission is needed to save the image.</string>
 
     <string name="str_no_internet">Internet connection is not available</string>
-    <string name="str_user_name">Please enter user name</string>
-    <string name="str_user_invalid">Invalid user name</string>
+    <string name="str_user_name">Please enter user email id</string>
+    <string name="str_user_invalid">Invalid email id</string>
     <string name="str_user_pwd">Please enter your password</string>
     <string name="str_company_code">Please enter your company code</string>
     <string name="str_pro_user">Please enter your name</string>
@@ -65,8 +65,6 @@
     <string name="str_pro_pwd">Please enter your password</string>
     <string name="str_sms_cust">Please Enter Customer Name</string>
     <string name="str_sms_cust_ph">Please Enter Phone no</string>
-
-
 
 
 </resources>
