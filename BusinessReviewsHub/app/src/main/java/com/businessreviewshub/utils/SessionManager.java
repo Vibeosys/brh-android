@@ -58,6 +58,7 @@ public class SessionManager {
         editor.putString(PropertyTypeConstants.SEND_SMS, mPropertyFileReader.getSendSmsUrl());
         editor.putString(PropertyTypeConstants.SMS_HISTORY, mPropertyFileReader.getSmsHistoryUrl());
         editor.putString(PropertyTypeConstants.EDIT_PROFILE, mPropertyFileReader.getEditProfilerUrl());
+        editor.putString(PropertyTypeConstants.FORGOT_PASSWORD,mPropertyFileReader.getForgotPasswordUrl());
         editor.apply();
         return true;
     }
@@ -157,5 +158,9 @@ public class SessionManager {
 
     public String getEditProfileUrl() {
         return mProjectSharedPref.getString(PropertyTypeConstants.EDIT_PROFILE, null);
+    }
+    public String getForgotPasswordUrl()
+    {
+        return mProjectSharedPref.getString(PropertyTypeConstants.FORGOT_PASSWORD,null);
     }
 }

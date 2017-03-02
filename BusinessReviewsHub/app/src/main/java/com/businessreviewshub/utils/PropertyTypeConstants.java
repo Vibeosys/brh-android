@@ -14,6 +14,7 @@ public class PropertyTypeConstants {
     public static final String SEND_SMS="api.endpoint.sms";
     public static final String SMS_HISTORY="api.endpoint.history";
     public static final String EDIT_PROFILE="api.endpoint.profile";
+    public static final String FORGOT_PASSWORD="api.endpoint.forgotpassword";
 
     public static  final String EMPLOYEE_CODE="user.id";
     public static  final String EMPLOYEE_PASSWORD="user.pw";

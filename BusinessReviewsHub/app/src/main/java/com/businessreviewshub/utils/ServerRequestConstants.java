@@ -8,5 +8,6 @@ public class ServerRequestConstants {
     public static final int REQUEST_SEND_SMS = 112;
     public static final int REQUEST_EDIT_PROFILE = 113;
     public static final int REQUEST_SMS_HISTORY = 114;
+    public static final int REQUEST_FORGOT_PASSWORD=115;
 
 }

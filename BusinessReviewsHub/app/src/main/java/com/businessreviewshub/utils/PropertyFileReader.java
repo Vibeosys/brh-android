@@ -13,15 +13,17 @@ public class PropertyFileReader {
     private static PropertyFileReader mPropertyFileReader = null;
     private static Context mContext;
     protected static Properties mProperties;
+
     public static PropertyFileReader getInstance(Context context) {
         if (mPropertyFileReader != null)
-        return mPropertyFileReader;
+            return mPropertyFileReader;
 
         mContext = context;
         mProperties = getProperties();
         mPropertyFileReader = new PropertyFileReader();
         return mPropertyFileReader;
     }
+
     protected static Properties getProperties() {
         try {
             AssetManager assetManager = mContext.getAssets();
@@ -35,9 +37,11 @@ public class PropertyFileReader {
 
         return mProperties;
     }
+
     protected String getEndPointUri() {
         return mProperties.getProperty(PropertyTypeConstants.API_ENDPOINT_URI);
     }
+
     public float getVersion() {
         String versionNumber = mProperties.getProperty(PropertyTypeConstants.VERSION_NUMBER);
         return Float.valueOf(versionNumber);
@@ -51,16 +55,24 @@ public class PropertyFileReader {
     public String getDatabaseFileName() {
         return mProperties.getProperty(PropertyTypeConstants.DATABASE_FILE_NAME);
     }
+
     public String getUserLoginUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.LOGIN_ENDPOINT_URI);
     }
+
     public String getSendSmsUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.SEND_SMS);
     }
+
     public String getSmsHistoryUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.SMS_HISTORY);
     }
+
     public String getEditProfilerUrl() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.EDIT_PROFILE);
+    }
+
+    public String getForgotPasswordUrl() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.FORGOT_PASSWORD);
     }
 }
