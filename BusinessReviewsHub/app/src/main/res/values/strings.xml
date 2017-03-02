@@ -65,6 +65,9 @@
     <string name="str_pro_pwd">Please enter your password</string>
     <string name="str_sms_cust">Please Enter Customer Name</string>
     <string name="str_sms_cust_ph">Please Enter Phone no</string>
+    <string name="str_forgot_pwd">Forgot password?</string>
+    <string name="title_activity_forgot_password">Forgot Password</string>
+    <string name="str_forgot_btn">Click here to get password</string>
 
 
 </resources>

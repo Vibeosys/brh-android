@@ -87,7 +87,7 @@
                 <LinearLayout
                     android:id="@+id/user_detail_layout"
                     android:layout_width="300dp"
-                    android:layout_height="310dp"
+                    android:layout_height="344dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -186,6 +186,39 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/forgot_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:padding="3dp"
+                        android:text="@string/str_forgot_pwd"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp"
+                        android:textStyle="italic|bold" />
+
+                    <TextView
+                        android:id="@+id/txtCopyRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="24dp"
+                        android:padding="3dp"
+                        android:text="@string/str_login_copyright"
+                        android:textColor="@color/primaryText2"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txtRightRevers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/str_login_rightRes"
+                        android:textColor="@color/primaryText2"
+                        android:textSize="14sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
@@ -205,24 +238,24 @@
                              android:textColor="@color/primaryText2"
                              android:textSize="10sp" />-->
 
-                        <TextView
-                            android:id="@+id/txtCopyRight"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:padding="3dp"
-                            android:text="@string/str_login_copyright"
-                            android:textColor="@color/primaryText2"
-                            android:textSize="14sp" />
+                        <!-- <TextView
+                             android:id="@+id/txtCopyRight"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="4dp"
+                             android:padding="3dp"
+                             android:text="@string/str_login_copyright"
+                             android:textColor="@color/primaryText2"
+                             android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/txtRightRevers"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="4dp"
-                            android:text="@string/str_login_rightRes"
-                            android:textColor="@color/primaryText2"
-                            android:textSize="14sp" />
+                         <TextView
+                             android:id="@+id/txtRightRevers"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginBottom="4dp"
+                             android:text="@string/str_login_rightRes"
+                             android:textColor="@color/primaryText2"
+                             android:textSize="14sp" />-->
 
 
                     </LinearLayout>

@@ -10,10 +10,12 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.businessreviewshub.MainActivity;
@@ -44,7 +47,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private Button mBtnLogin;
     private EditText mEdtCmpName, mEditPassword, mEditCompanyCode, mUserName;
     private Context mContext = this;
-    private TextView mTxtCopyright, mTxtWebsite;
+    private TextView mTxtCopyright, mTxtWebsite, mForgotPassword;
 
 
     @Override
@@ -62,7 +65,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         mUserName = (EditText) findViewById(R.id.et_username);
         mTxtCopyright = (TextView) findViewById(R.id.txtCopyRight);
         mTxtWebsite = (TextView) findViewById(R.id.txtWebsite);
+        mForgotPassword = (TextView) findViewById(R.id.forgot_pwd);
         mTxtWebsite.setMovementMethod(LinkMovementMethod.getInstance());
+        SpannableString content = new SpannableString(getResources().getString(R.string.str_forgot_pwd));
+        content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+        mForgotPassword.setText(content);
 
         SpannableStringBuilder ssWebsite = new SpannableStringBuilder(getString(R.string.str_login_website));
         ssWebsite.setSpan(new ClickableSpan() {
@@ -75,6 +82,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         mTxtWebsite.setText(ssWebsite, TextView.BufferType.SPANNABLE);
         mBtnLogin.setOnClickListener(this);
         mEdtCmpName.setOnClickListener(this);
+        mForgotPassword.setOnClickListener(this);
         mServerSyncManager.setOnStringErrorReceived(this);
         mServerSyncManager.setOnStringResultReceived(this);
     }
@@ -95,7 +103,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
                 }
                 break;
-
+            case R.id.forgot_pwd:
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(intent);
+                finish();
+                break;
         }
     }
 
