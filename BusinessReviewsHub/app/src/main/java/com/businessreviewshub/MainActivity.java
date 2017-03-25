@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private GoogleApiClient client;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
         setUpFragment(R.id.sendSmsLay);
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -166,9 +168,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
-                Uri.parse("http://businessreviewshub.com/"),
+                Uri.parse("https://businessreviewshub.com/"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.businessreviewshub/http/businessreviewshub.com/")
+                Uri.parse("android-app://com.businessreviewshub/https/businessreviewshub.com/")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
     }
@@ -185,9 +187,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
-                Uri.parse("http://businessreviewshub.com/"),
+                Uri.parse("https://businessreviewshub.com/"),
                 // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.businessreviewshub/http/businessreviewshub.com/")
+                Uri.parse("android-app://com.businessreviewshub/https/businessreviewshub.com/")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
